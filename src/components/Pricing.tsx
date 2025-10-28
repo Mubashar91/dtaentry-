@@ -147,13 +147,13 @@ export const Pricing = () => {
               
               <div className={`relative rounded-2xl p-6 sm:p-8 md:p-10 transition-all duration-500 group h-full ${
                 plan.highlighted 
-                  ? 'bg-gradient-to-br from-[hsl(var(--brand-blue))] via-[hsl(var(--brand-blue))] to-[hsl(var(--brand-blue))] text-foreground shadow-[0_25px_70px_-15px_hsl(var(--brand-blue)/0.5)]' 
+                  ? 'bg-gradient-to-br from-[hsl(var(--brand-blue))] via-[hsl(var(--brand-blue))] to-[hsl(var(--brand-blue))] text-white shadow-[0_25px_70px_-15px_hsl(var(--brand-blue)/0.5)]' 
                   : 'bg-card border-2 border-brand/30 hover:border-brand hover:shadow-[0_25px_70px_-15px_hsl(var(--brand-blue)/0.4)]'
               }`}>
                 {/* Top accent line with animation */}
                 <motion.div 
                   className={`absolute top-0 left-0 right-0 h-1 rounded-t-2xl ${
-                    plan.highlighted ? 'bg-foreground/20' : 'bg-gradient-to-r from-transparent via-brand to-transparent'
+                    plan.highlighted ? 'bg-white/20' : 'bg-gradient-to-r from-transparent via-brand to-transparent'
                   }`}
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
@@ -162,7 +162,7 @@ export const Pricing = () => {
               
                 {plan.badge && (
                   <motion.div 
-                    className="absolute -top-4 right-6 bg-gradient-to-r from-foreground to-foreground/95 text-brand px-4 py-1.5 rounded-full text-xs font-bold shadow-xl flex items-center gap-1.5 border border-brand/20"
+                    className="absolute -top-4 right-6 px-4 py-1.5 rounded-full text-xs font-bold shadow-xl flex items-center gap-1.5 border border-brand/20 bg-white text-brand"
                     initial={{ y: -10, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.5 }}
@@ -181,18 +181,18 @@ export const Pricing = () => {
                 {/* Header */}
                 <div className="mb-6 relative z-10">
                   <h3 className={`text-2xl sm:text-3xl font-bold mb-2 group-hover:scale-105 transition-transform duration-300 ${
-                    plan.highlighted ? 'text-foreground' : 'text-foreground'
+                    plan.highlighted ? 'text-white' : 'text-foreground'
                   }`}>
                     {plan.name}
                   </h3>
                   <div className="flex items-center gap-2">
                     <p className={`text-sm font-medium ${
-                      plan.highlighted ? 'text-foreground/70' : 'text-muted-foreground'
+                      plan.highlighted ? 'text-white/70' : 'text-muted-foreground'
                     }`}>
                       {plan.hours}
                     </p>
                     <span className={`px-2 py-0.5 text-xs rounded-full ${
-                      plan.highlighted ? 'bg-foreground/20 text-foreground' : 'bg-brand/10 text-brand'
+                      plan.highlighted ? 'bg-white/20 text-white' : 'bg-brand/10 text-brand'
                     }`}>
                       Data Entry
                     </span>
@@ -204,7 +204,7 @@ export const Pricing = () => {
                   <div className="flex items-baseline gap-1">
                     <motion.span 
                       className={`text-5xl sm:text-6xl font-bold tracking-tight ${
-                        plan.highlighted ? 'text-foreground' : 'text-brand'
+                        plan.highlighted ? 'text-white' : 'text-brand'
                       }`}
                       initial={{ scale: 0.5, opacity: 0 }}
                       whileInView={{ scale: 1, opacity: 1 }}
@@ -213,20 +213,20 @@ export const Pricing = () => {
                       ${plan.price}
                     </motion.span>
                     <span className={`text-base ml-1 ${
-                      plan.highlighted ? 'text-foreground/60' : 'text-muted-foreground'
+                      plan.highlighted ? 'text-white/70' : 'text-muted-foreground'
                     }`}>
                       /mo
                     </span>
                   </div>
                   {plan.setupFee > 0 ? (
                     <p className={`text-xs mt-2 ${
-                      plan.highlighted ? 'text-foreground/60' : 'text-muted-foreground'
+                      plan.highlighted ? 'text-white/70' : 'text-muted-foreground'
                     }`}>
                       + ${plan.setupFee} setup fee
                     </p>
                   ) : (
                     <p className={`text-xs mt-2 font-semibold flex items-center gap-1 ${
-                      plan.highlighted ? 'text-foreground' : 'text-brand'
+                      plan.highlighted ? 'text-white' : 'text-brand'
                     }`}>
                       <Check className="w-3.5 h-3.5" />
                       No setup fee
@@ -245,14 +245,14 @@ export const Pricing = () => {
                       transition={{ delay: 0.5 + fIndex * 0.1 }}
                     >
                       <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 transition-all duration-300 group-hover:scale-110 ${
-                        plan.highlighted ? 'bg-foreground/20' : 'bg-brand/10 group-hover:bg-brand/20'
+                        plan.highlighted ? 'bg-white/20' : 'bg-brand/10 group-hover:bg-brand/20'
                       }`}>
                         <Check className={`w-3 h-3 ${
-                          plan.highlighted ? 'text-foreground' : 'text-brand'
+                          plan.highlighted ? 'text-white' : 'text-brand'
                         }`} />
                       </div>
                       <span className={`text-sm leading-relaxed ${
-                        plan.highlighted ? 'text-foreground/85' : 'text-muted-foreground'
+                        plan.highlighted ? 'text-white/85' : 'text-muted-foreground'
                       }`}>
                         {feature}
                       </span>
@@ -267,7 +267,7 @@ export const Pricing = () => {
                   onClick={() => window.location.href = '/book-meeting'}
                   className={`w-full relative z-10 font-bold text-base py-6 sm:py-7 rounded-xl transition-all duration-300 group/btn overflow-hidden min-h-[44px] ${
                     plan.highlighted 
-                      ? 'bg-foreground text-brand hover:bg-foreground/95 shadow-lg hover:shadow-xl hover:scale-105' 
+                      ? 'bg-white text-brand hover:bg-white/95 shadow-lg hover:shadow-xl hover:scale-105' 
                       : 'border-2 border-brand text-brand hover:bg-brand hover:text-foreground hover:scale-105'
                   }`}
                   aria-label={`Get started with ${plan.name} plan - ${plan.hours} per week at ${Math.round(plan.price * (1 - discount) * vaCount)} per month`}
