@@ -4,40 +4,40 @@ import { useRef } from "react";
 
 const services = [
   {
-    icon: Search,
-    title: "Keyword Research & Strategy",
-    description: "Comprehensive keyword analysis, search intent mapping, competitor research, and strategic roadmaps to dominate your niche",
-    benefit: "Target high-value keywords"
-  },
-  {
     icon: FileText,
-    title: "Content Optimization",
-    description: "SEO-optimized content creation, blog writing, meta descriptions, and content audits designed to rank and convert",
-    benefit: "3–5x organic traffic"
+    title: "Form & Document Processing",
+    description: "Accurate entry from PDFs, scans, and forms (OCR-assisted) with double-check QA for zero missing fields",
+    benefit: "99.9% accuracy"
   },
   {
     icon: Settings,
-    title: "Technical SEO",
-    description: "Site speed optimization, mobile responsiveness, schema markup, and technical audits to improve crawlability",
-    benefit: "Faster indexing & ranking"
+    title: "Data Cleaning & Normalization",
+    description: "De-duplication, formatting, standardization, and validation rules to keep your datasets consistent",
+    benefit: "Clean, reliable data"
   },
   {
     icon: BarChart3,
-    title: "SEO Analytics & Reporting",
-    description: "Monthly ranking reports, traffic analysis, conversion tracking, and data-driven recommendations for continuous growth",
-    benefit: "Track ranking progress"
+    title: "Catalog & Listing Management",
+    description: "Product attributes, SKUs, images, pricing, and bulk updates for eCommerce, marketplaces, and CMS",
+    benefit: "Faster updates"
   },
   {
-    icon: Target,
-    title: "Local SEO",
-    description: "Google My Business optimization, local citations, review management, and geo-targeted strategies for local dominance",
-    benefit: "Dominate local search"
+    icon: Search,
+    title: "Web Research & Data Collection",
+    description: "Verified lead lists and datasets compiled from trusted sources, enriched with the fields you need",
+    benefit: "Quality leads/data"
   },
   {
     icon: Link,
-    title: "Link Building",
-    description: "High-quality backlink acquisition, outreach campaigns, and authority building to boost your domain strength",
-    benefit: "Increase domain authority"
+    title: "CRM/Sheet Migration",
+    description: "Import/export, schema mapping, and safe migration between spreadsheets, CRMs, and databases",
+    benefit: "Seamless migration"
+  },
+  {
+    icon: Target,
+    title: "QA & Ongoing Maintenance",
+    description: "Routine audits, spot checks, and SLAs to keep records accurate as your data changes over time",
+    benefit: "Zero drift"
   }
 ];
 
@@ -71,13 +71,13 @@ export const Services = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 bg-gradient-to-br from-[hsl(var(--gold))] via-[hsl(var(--brand-blue))] to-[hsl(var(--gold))] text-foreground text-xs sm:text-sm md:text-base font-semibold rounded-full mb-3 sm:mb-4">
-            Our SEO Services
+            Our Data Entry Services
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-5 px-2">
-            How We <span className="text-gold">Boost</span> Your Rankings
+            How We <span className="text-gold">Power</span> Your Data Ops
           </h2>
           <p className="text-base sm:text-lg md:text-lg lg:text-xl text-muted-foreground max-w-3xl leading-relaxed px-2">
-            Complete SEO solutions — from keyword research to technical optimization, we handle everything to get you ranking higher.
+            End‑to‑end data entry operations—intake, cleaning, validation, and delivery—so your team can focus on growth, not spreadsheets.
           </p>
         </motion.div>
 

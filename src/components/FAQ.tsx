@@ -9,28 +9,28 @@ import { HelpCircle, Shield, Zap } from "lucide-react";
 
 const faqs = [
   {
-    question: "How long does it take to see SEO results?",
-    answer: "SEO is a long-term strategy. You'll typically see initial improvements in 3-6 months, with significant results in 6-12 months. We provide monthly reports to track progress and adjust strategies based on performance data."
+    question: "How fast can you deliver data entry projects?",
+    answer: "Most small projects (up to ~5k records) are delivered within 24–72 hours. Larger volumes include phased delivery so you see progress daily."
   },
   {
-    question: "Do you guarantee first page rankings?",
-    answer: "While we can't guarantee specific rankings (no ethical SEO agency can), we guarantee measurable improvements in organic traffic, keyword rankings, and search visibility using proven white-hat techniques."
+    question: "How do you ensure accuracy?",
+    answer: "We use a structured template, validation rules, and a second‑pass QA check. For critical fields, we can enable double‑entry verification to reach 99.9%+."
   },
   {
-    question: "What's included in your SEO audit?",
-    answer: "Our comprehensive audit covers technical SEO, on-page optimization, content analysis, keyword research, competitor analysis, backlink profile review, and site speed optimization. You'll receive a detailed report with actionable recommendations."
+    question: "What formats do you accept and deliver?",
+    answer: "We accept PDFs/scans (OCR), CSV/TSV, Sheets/Excel, and exports from CRMs. We deliver in your preferred format (CSV, Sheets, Excel) or push directly to your CRM/API."
   },
   {
-    question: "Do you work with my existing content team?",
-    answer: "Absolutely! We collaborate with your in-house team, providing SEO guidelines, keyword strategies, and content optimization recommendations. We can also create SEO-optimized content if needed."
+    question: "Can you work in our systems?",
+    answer: "Yes. We can work directly in Google Sheets, Excel, Airtable, or your CRM (e.g., HubSpot, Salesforce) with the appropriate access and permissions."
   },
   {
-    question: "How do you measure SEO success?",
-    answer: "We track organic traffic growth, keyword rankings, click-through rates, conversion rates, domain authority, and revenue from organic search. Monthly reports show progress toward your specific business goals."
+    question: "Is our data secure and confidential?",
+    answer: "We follow least‑privilege access, NDA by default if required, and encrypted file transfer. We can use your shared drives and restrict editing to assigned users."
   },
   {
-    question: "Can you help with local SEO?",
-    answer: "Yes! We specialize in local SEO including Google My Business optimization, local citation building, review management, and location-based keyword targeting to help you dominate local search results."
+    question: "Do you handle ongoing maintenance?",
+    answer: "Yes. We offer weekly/monthly maintenance for catalog updates, CRM hygiene, deduplication, and regular QA audits."
   }
 ];
 
@@ -77,7 +77,7 @@ export const FAQ = () => {
             </h2>
             {/* Description - Centered */}
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed px-2 text-center mx-auto">
-              Everything you need to know about our SEO services. Can't find what you're looking for? Chat with us.
+              Everything you need to know about our Data Entry services. Can't find what you're looking for? Chat with us.
             </p>
           </motion.div>
 
@@ -132,10 +132,10 @@ export const FAQ = () => {
                 </div>
                 <div>
                   <h3 className="text-base sm:text-lg font-bold text-foreground mb-1.5">
-                    White-Hat SEO
+                    Data Security & Confidentiality
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    We use only ethical, Google-approved SEO techniques that protect your site long-term
+                    NDA on request, least‑privilege access, encrypted transfer, and audit logs available for sensitive workflows.
                   </p>
                 </div>
               </div>
@@ -148,10 +148,10 @@ export const FAQ = () => {
                 </div>
                 <div>
                   <h3 className="text-base sm:text-lg font-bold text-foreground mb-1.5">
-                    Complete SEO Suite
+                    Complete Data Ops
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Technical SEO • Content • Keywords • Links • Local SEO • Analytics & more
+                    Intake • Cleaning • Validation • Deduping • QA • Delivery • Maintenance
                   </p>
                 </div>
               </div>

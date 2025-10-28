@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MessageCircle, Sparkles, Clock, CheckCircle2, Search, TrendingUp, Award } from "lucide-react";
+import { ArrowRight, MessageCircle, Sparkles, Clock, CheckCircle2, Award, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const FinalCTA = () => {
   return (
     <motion.section 
-      className="relative overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 bg-gradient-to-br from-gold via-amber-500 to-yellow-600 z-60"
+      className="relative overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 bg-gradient-to-br from-[hsl(var(--brand-blue)/0.9)] via-[hsl(var(--gold)/0.85)] to-[hsl(var(--brand-blue)/0.9)] z-60"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -14,15 +14,21 @@ export const FinalCTA = () => {
       {/* Enhanced background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Animated grid pattern */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-15">
           <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-            backgroundSize: '50px 50px'
+            backgroundImage: 'linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px)',
+            backgroundSize: '36px 36px'
           }} />
-        </div>
+          {/* Dark overlay for stronger contrast */}
+        <div className="absolute inset-0 pointer-events-none bg-black/30 dark:bg-black/45" />
+      </div>
+        {/* Soft radial vignette */}
+        <div className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-70 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.06)_30%,transparent_65%)]" />
+        {/* Subtle diagonal texture */}
+        <div className="absolute inset-0 pointer-events-none opacity-10 bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.08)_0px,rgba(255,255,255,0.08)_2px,transparent_2px,transparent_8px)]" />
         {/* Animated gradient orbs */}
         <motion.div 
-          className="absolute -top-20 -right-20 w-40 h-40 xs:w-48 xs:h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 bg-white/10 rounded-full mix-blend-overlay filter blur-3xl"
+          className="absolute -top-20 -right-20 w-40 h-40 xs:w-48 xs:h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 bg-emerald-300/20 rounded-full mix-blend-overlay filter blur-3xl"
           animate={{ 
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3]
@@ -34,7 +40,7 @@ export const FinalCTA = () => {
           }}
         />
         <motion.div 
-          className="absolute -bottom-16 -left-16 w-32 h-32 xs:w-36 xs:h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-60 lg:h-60 bg-amber-300/20 rounded-full mix-blend-overlay filter blur-3xl"
+          className="absolute -bottom-16 -left-16 w-32 h-32 xs:w-36 xs:h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-60 lg:h-60 bg-emerald-400/25 rounded-full mix-blend-overlay filter blur-3xl"
           animate={{ 
             scale: [1.2, 1, 1.2],
             opacity: [0.4, 0.2, 0.4]
@@ -49,17 +55,17 @@ export const FinalCTA = () => {
         
         {/* Enhanced geometric patterns */}
         <motion.div 
-          className="absolute top-10 left-10 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 border-2 border-white/20 rounded-lg"
+          className="absolute top-10 left-10 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 border-2 border-white/25 rounded-lg"
           animate={{ rotate: [0, 90, 180, 270, 360] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
         <motion.div 
-          className="absolute bottom-16 right-16 w-12 h-12 sm:w-16 sm:h-16 border-2 border-white/20 rounded-full"
+          className="absolute bottom-16 right-16 w-12 h-12 sm:w-16 sm:h-16 border-2 border-white/25 rounded-full"
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-white/30 rounded-full animate-pulse" />
-        <div className="absolute bottom-1/3 left-1/4 w-2 h-2 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-white/35 rounded-full animate-pulse" />
+        <div className="absolute bottom-1/3 left-1/4 w-2 h-2 bg-white/35 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 relative z-10">
@@ -85,7 +91,7 @@ export const FinalCTA = () => {
               >
                 <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.div>
-              <span className="whitespace-nowrap">Start Your SEO Journey Today</span>
+              <span className="whitespace-nowrap">Start Your Data Entry Today</span>
               <div className="w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-green-400 animate-pulse"></div>
             </div>
           </motion.div>
@@ -98,10 +104,10 @@ export const FinalCTA = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <span className="block drop-shadow-lg">Ready to Rank</span>
+            <span className="block drop-shadow-lg">Ready for Clean,</span>
             <span className="relative inline-block mt-2 sm:mt-3">
-              <span className="relative z-10 bg-gradient-to-r from-white via-amber-50 to-white bg-clip-text text-transparent drop-shadow-2xl">
-                Higher?
+              <span className="relative z-10 bg-gradient-to-r from-white via-emerald-50 to-white bg-clip-text text-transparent drop-shadow-2xl">
+                Accurate Data?
               </span>
               <motion.span 
                 className="absolute bottom-2 sm:bottom-3 left-0 w-full h-4 sm:h-5 bg-white/30 -z-0 rounded-full blur-sm"
@@ -121,16 +127,16 @@ export const FinalCTA = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <p className="text-xl sm:text-2xl md:text-3xl text-white/95 mb-8 leading-relaxed font-semibold drop-shadow-md">
-              Let's boost your search rankings in 30-90 days
+              Get spreadsheet‑style data delivered in 24–72 hours
             </p>
             
             {/* Benefits list */}
             <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-5 mt-8">
               {[
-                "Free SEO audit",
-                "30-day money-back guarantee",
-                "Proven ranking strategies",
-                "24/7 support"
+                "Free sample included",
+                "Template & field mapping",
+                "99.9% accuracy QA",
+                "24–72h turnaround"
               ].map((benefit, index) => (
                 <motion.div
                   key={benefit}
@@ -162,7 +168,7 @@ export const FinalCTA = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/20 to-transparent -skew-x-12 transform translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/10 to-gold/0 animate-pulse" />
               <span className="relative flex items-center gap-3">
-                <span>Book Free SEO Audit</span>
+                <span>Get Free Sample</span>
                 <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 group-hover:translate-x-2 transition-transform duration-300" />
               </span>
             </Button>
@@ -190,10 +196,10 @@ export const FinalCTA = () => {
             transition={{ duration: 0.7, delay: 0.35 }}
           >
             {[
-              { icon: Search, value: "500+", label: "Clients Ranked" },
-              { icon: TrendingUp, value: "350%", label: "Avg. Traffic Boost" },
-              { icon: Award, value: "98%", label: "Satisfaction" },
-              { icon: Clock, value: "30d", label: "First Results" }
+              { icon: FileText, value: "5M+", label: "Records Processed" },
+              { icon: CheckCircle2, value: "99.9%", label: "Accuracy (QA)" },
+              { icon: Clock, value: "24–72h", label: "Avg. Turnaround" },
+              { icon: Award, value: "98%", label: "On‑time Delivery" }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -259,7 +265,7 @@ export const FinalCTA = () => {
           >
             <span className="flex items-center justify-center gap-2 flex-wrap">
               <CheckCircle2 className="w-4 h-4 text-green-400" />
-              Join 500+ businesses that dominate search results with our proven SEO strategies
+              Join 500+ teams shipping clean datasets with our proven data entry workflows
             </span>
           </motion.p>
         </motion.div>

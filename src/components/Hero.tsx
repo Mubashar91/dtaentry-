@@ -69,11 +69,11 @@ export const Hero = () => {
             </motion.div>
             
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-5 md:mb-6 leading-[1.15] sm:leading-[1.12] md:leading-[1.1]">
-              Dominate Search Results & <span className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">Drive Organic Traffic</span>
+              Fast, Accurate <span className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">Data Entry Services</span>
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-3 sm:mb-4 md:mb-5 leading-relaxed max-w-xl">
-              Complete SEO solutions: keyword research, on-page optimization, content strategy, and technical SEO — all designed to boost your rankings.
+              Spreadsheet-style data entry with validation, clean-up, and QA. We handle forms, lists, catalogs, surveys, OCR docs, and bulk updates—accurately and on time.
             </p>
             
             <motion.div
@@ -87,7 +87,7 @@ export const Hero = () => {
                 size="lg"
                 onClick={() => window.location.href = '/book-meeting'}
                 className="group relative w-full sm:w-auto text-sm sm:text-base md:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 md:py-7 h-auto font-bold shadow-gold-lg transform hover:scale-[1.06] hover:-translate-y-2 transition-all duration-400 hover:brightness-110 cursor-pointer overflow-hidden rounded-xl border-2 border-transparent hover:border-yellow-400/30"
-                aria-label="Book a free 15-minute SEO strategy call"
+                aria-label="Book a free 15-minute data entry consultation"
               >
                 {/* Subtle shimmer effect */}
                 <motion.div
@@ -110,8 +110,8 @@ export const Hero = () => {
                 
                 <span className="relative z-10 flex items-center justify-center gap-2.5">
                   <Calendar className="w-5 h-5 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" aria-hidden="true" />
-                  <span className="hidden sm:inline font-semibold group-hover:tracking-wide transition-all duration-300">Book Free SEO Audit (15 min)</span>
-                  <span className="sm:hidden font-semibold group-hover:tracking-wide transition-all duration-300">Book SEO Audit</span>
+                  <span className="hidden sm:inline font-semibold group-hover:tracking-wide transition-all duration-300">Book Data Entry Consult (15 min)</span>
+                  <span className="sm:hidden font-semibold group-hover:tracking-wide transition-all duration-300">Book Consult</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-2 group-hover:scale-110 transition-all duration-300" aria-hidden="true" />
                 </span>
               </Button>
@@ -136,7 +136,7 @@ export const Hero = () => {
                 >
                   <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-gold" aria-hidden="true" />
                 </motion.div>
-                <span className="font-medium">Free comprehensive SEO audit included</span>
+                <span className="font-medium">Free sample + workflow plan included</span>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -183,7 +183,7 @@ export const Hero = () => {
               {/* Layer 1: image */}
               <motion.img
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
-                alt="SEO analytics dashboard with search rankings and traffic metrics"
+                alt="Spreadsheet-style data entry dashboard and records grid"
                 className="w-full h-auto object-cover"
                 style={{ transform: "translateZ(20px)" }}
               />
@@ -229,8 +229,8 @@ export const Hero = () => {
                       transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                     >
                       <Search className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-brand/80 group-hover/stat:text-brand transition-colors" aria-hidden="true" />
-                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">1M+</div>
-                      <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground font-medium">Keywords Ranked</div>
+                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">5M+</div>
+                      <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground font-medium">Records Processed</div>
                     </motion.div>
                   </motion.div>
                   
@@ -246,8 +246,8 @@ export const Hero = () => {
                       transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
                     >
                       <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-brand/80 group-hover/stat:text-brand transition-colors" aria-hidden="true" />
-                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">350%</div>
-                      <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground font-medium">Avg Traffic Boost</div>
+                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">24–48h</div>
+                      <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground font-medium">Avg Turnaround</div>
                     </motion.div>
                   </motion.div>
                   
@@ -263,8 +263,8 @@ export const Hero = () => {
                       transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
                     >
                       <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-brand/80 group-hover/stat:text-brand transition-colors" aria-hidden="true" />
-                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">#1</div>
-                      <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground font-medium">Page Rankings</div>
+                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">99.9%</div>
+                      <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground font-medium">Accuracy (QA)</div>
                     </motion.div>
                   </motion.div>
                 </div>

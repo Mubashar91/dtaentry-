@@ -20,7 +20,7 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
-          <div className="app-shell">
+          <div className="app-shell min-h-screen bg-background text-foreground">
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<Index />} />

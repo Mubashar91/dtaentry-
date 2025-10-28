@@ -1,27 +1,29 @@
 import { motion } from "framer-motion";
 
 const tools = [
-  { name: "Instagram", category: "Platform" },
-  { name: "TikTok", category: "Platform" },
-  { name: "LinkedIn", category: "Platform" },
-  { name: "Facebook", category: "Platform" },
-  { name: "X (Twitter)", category: "Platform" },
-  { name: "YouTube", category: "Platform" },
-  { name: "Canva", category: "Design" },
-  { name: "Adobe Suite", category: "Design" },
-  { name: "Figma", category: "Design" },
-  { name: "CapCut", category: "Video Editing" },
-  { name: "Premiere Pro", category: "Video Editing" },
-  { name: "Final Cut Pro", category: "Video Editing" },
-  { name: "Hootsuite", category: "Scheduling" },
-  { name: "Buffer", category: "Scheduling" },
-  { name: "Later", category: "Scheduling" },
-  { name: "Sprout Social", category: "Analytics" },
-  { name: "Google Analytics", category: "Analytics" },
-  { name: "Meta Business Suite", category: "Analytics" }
+  { name: "Google Sheets", category: "Spreadsheets" },
+  { name: "Microsoft Excel", category: "Spreadsheets" },
+  { name: "Airtable", category: "Spreadsheets" },
+  { name: "Notion", category: "Spreadsheets" },
+  { name: "CSV / TSV", category: "Formats" },
+  { name: "Zapier", category: "Automation" },
+  { name: "Make (Integromat)", category: "Automation" },
+  { name: "Custom APIs", category: "Integration" },
+  { name: "HubSpot", category: "CRM" },
+  { name: "Salesforce", category: "CRM" },
+  { name: "Pipedrive", category: "CRM" },
+  { name: "Shopify", category: "eCommerce" },
+  { name: "WooCommerce", category: "eCommerce" },
+  { name: "BigQuery", category: "Database" },
+  { name: "MySQL", category: "Database" },
+  { name: "PostgreSQL", category: "Database" },
+  { name: "Google Drive", category: "Storage" },
+  { name: "OneDrive", category: "Storage" },
+  { name: "Docparser", category: "OCR/Docs" },
+  { name: "Tesseract OCR", category: "OCR/Docs" }
 ];
 
-const categories = ["Platform", "Design", "Video Editing", "Scheduling", "Analytics"];
+const categories = ["Spreadsheets", "Formats", "Automation", "Integration", "CRM", "eCommerce", "Database", "Storage", "OCR/Docs"];
 
 export const ToolsIntegration = () => {
   return (
@@ -41,10 +43,10 @@ export const ToolsIntegration = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 px-2">
-            We Work With <span className="text-gold">All Major Platforms</span>
+            Seamless <span className="text-gold">Data Integrations</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl px-2">
-            From content creation to analytics—we're fluent in the tools that power modern social media.
+            We plug into your stack—spreadsheets, CRMs, eCommerce, databases, and automation tools—for smooth intake and delivery.
           </p>
         </motion.div>
 
@@ -83,10 +85,10 @@ export const ToolsIntegration = () => {
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
           >
             <p className="text-base sm:text-lg text-foreground mb-3 sm:mb-4">
-              <span className="font-bold text-gold">Using a different platform or tool?</span> We adapt. 
+              <span className="font-bold text-gold">Using a different system?</span> We adapt. 
             </p>
             <p className="text-sm sm:text-base text-muted-foreground">
-              Our team stays current with emerging platforms and tools. If it's part of your stack, we'll master it.
+              Share your format or API—CSV, Sheets, CRM, or DB. We’ll match your workflow end‑to‑end.
             </p>
           </motion.div>
         </div>

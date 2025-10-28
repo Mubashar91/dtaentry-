@@ -28,119 +28,119 @@ interface CaseStudy {
 const caseStudies: CaseStudy[] = [
   {
     id: 1,
-    title: "E-commerce Store Achieves 400% Organic Traffic Growth with Technical SEO Overhaul",
+    title: "Catalog Clean-Up: 50k SKUs Normalized with 99.9% Accuracy",
     company: "TechMart Online",
     industry: "E-commerce",
-    challenge: "Poor site performance, technical issues, and low search visibility. Organic traffic was declining while competitors dominated search results.",
-    solution: "Comprehensive technical SEO audit, site speed optimization, mobile responsiveness improvements, schema markup implementation, and strategic keyword targeting.",
+    challenge: "Duplicate SKUs, inconsistent attributes, and mismatched images across thousands of products created order errors and returns.",
+    solution: "Template-driven attribute mapping, deduping, image/variant alignment, and QA double-check before import to the storefront.",
     results: [
       {
-        metric: "Organic Traffic",
-        value: "+400%",
-        description: "Massive increase in organic sessions within 6 months"
+        metric: "Accuracy",
+        value: "99.9%",
+        description: "Double-pass QA on critical fields"
       },
       {
-        metric: "Keyword Rankings",
-        value: "250+",
-        description: "Keywords ranking in top 10 positions"
+        metric: "Turnaround",
+        value: "14 days",
+        description: "Phased delivery for early value"
       },
       {
-        metric: "Revenue",
-        value: "+280%",
-        description: "Organic revenue growth from improved rankings"
+        metric: "Returns",
+        value: "-32%",
+        description: "Fewer wrong-item shipments"
       },
       {
-        metric: "Page Speed",
-        value: "+85%",
-        description: "Improvement in Core Web Vitals scores"
+        metric: "Admin Time",
+        value: "-45%",
+        description: "Less manual cleanup downstream"
       }
     ],
-    testimonial: "Our organic traffic exploded after the technical SEO improvements. We're now ranking for keywords we never thought possible.",
+    testimonial: "They transformed our messy catalog into a clean, reliable dataset. Our ops team saves hours every week.",
     testimonialAuthor: "Stefan Richter",
     testimonialRole: "CEO, TechMart Online",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop",
     stats: {
-      mainResult: "+400% Traffic",
-      timeframe: "6 months",
-      seoFocus: "Technical SEO"
+      mainResult: "99.9% Accuracy",
+      timeframe: "14 days",
+      seoFocus: "Catalog Clean-Up"
     }
   },
   {
     id: 2,
-    title: "Local Business Dominates Local Search with Strategic Local SEO Campaign",
+    title: "CRM Migration: 25k Contacts Moved with Zero Data Loss",
     company: "Digital Dynamics",
     industry: "Professional Services",
-    challenge: "Invisible in local search results, poor Google My Business presence, and losing customers to competitors with better online visibility.",
-    solution: "Local SEO optimization, Google My Business enhancement, local citation building, review management, and location-based content strategy.",
+    challenge: "Legacy CRM fields did not map cleanly to the new CRM. High risk of lost notes and bad owner assignments.",
+    solution: "Schema mapping, test imports, rollback plan, and staged batch imports with validation and audit logs.",
     results: [
       {
-        metric: "Local Rankings",
-        value: "#1 Position",
-        description: "Top ranking for primary local keywords"
+        metric: "Records Migrated",
+        value: "25k",
+        description: "Contacts with notes and activities"
       },
       {
-        metric: "GMB Views",
-        value: "+320%",
-        description: "Increase in Google My Business profile views"
+        metric: "Data Loss",
+        value: "0",
+        description: "All fields verified post‑import"
       },
       {
-        metric: "Phone Calls",
-        value: "+180%",
-        description: "More direct calls from search results"
+        metric: "Owner Fixes",
+        value: "100%",
+        description: "Owners reconciled from mapping rules"
       },
       {
-        metric: "Reviews",
-        value: "+150%",
-        description: "Increase in positive Google reviews"
+        metric: "Timeframe",
+        value: "10 days",
+        description: "Executed in 4 safe batches"
       }
     ],
-    testimonial: "We now dominate local search. Our phone rings constantly with qualified leads from Google searches.",
+    testimonial: "Zero data loss and clean ownership mapping. The migration was smooth and well-documented.",
     testimonialAuthor: "Julia Becker",
     testimonialRole: "Founder, Digital Dynamics",
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop",
     stats: {
-      mainResult: "#1 Local Ranking",
-      timeframe: "4 months",
-      seoFocus: "Local SEO"
+      mainResult: "0 Data Loss",
+      timeframe: "10 days",
+      seoFocus: "CRM Migration"
     }
   },
   {
     id: 3,
-    title: "SaaS Company Reduces Customer Acquisition Cost with Content-Driven SEO",
+    title: "Survey Data Entry: 100k Responses Cleaned and Validated",
     company: "CloudFlow Solutions",
     industry: "SaaS",
-    challenge: "High customer acquisition costs from paid ads, limited organic visibility, and difficulty reaching target audience through search.",
-    solution: "Comprehensive content strategy, keyword-optimized blog posts, technical documentation SEO, and strategic internal linking to drive organic leads.",
+    challenge: "Survey exports had inconsistent formats, missing fields, and free‑text that needed normalization for analysis.",
+    solution: "Validation rules with dropdowns, regex standardization for phone/emails, and helper columns for QA checks.",
     results: [
       {
-        metric: "Organic Leads",
-        value: "+450%",
-        description: "Increase in qualified leads from organic search"
+        metric: "Responses",
+        value: "100k",
+        description: "Processed with validation rules"
       },
       {
-        metric: "CAC Reduction",
-        value: "-60%",
-        description: "Lower customer acquisition cost overall"
+        metric: "Invalid Entries",
+        value: "-92%",
+        description: "Rejected or fixed during QA"
       },
       {
-        metric: "Content Traffic",
-        value: "+380%",
-        description: "Blog and resource page traffic growth"
+        metric: "Delivery",
+        value: "CSV + Dashboard",
+        description: "Final dataset with summary views"
       },
       {
-        metric: "Conversion Rate",
-        value: "+25%",
-        description: "Better qualified organic traffic converts more"
+        metric: "Timeframe",
+        value: "7 days",
+        description: "Daily phased drops"
       }
     ],
-    testimonial: "SEO transformed our lead generation. We're getting high-quality prospects without the high cost of paid advertising.",
+    testimonial: "Clean, analysis‑ready data in a week. The validation rules caught issues we would have missed.",
     testimonialAuthor: "Marco Schneider",
     testimonialRole: "CTO, CloudFlow Solutions",
     image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=500&fit=crop",
     stats: {
-      mainResult: "-60% CAC",
-      timeframe: "8 months",
-      seoFocus: "Content SEO"
+      mainResult: "100k Processed",
+      timeframe: "7 days",
+      seoFocus: "Survey Cleaning"
     }
   }
 ];
@@ -172,10 +172,10 @@ export const CaseStudies = () => {
             Success Stories
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-foreground">
-            SEO Success Stories
+            Data Entry Success Stories
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            See how businesses achieved top rankings, increased organic traffic, and boosted revenue with our proven SEO strategies.
+            See how teams shipped clean datasets faster—catalogs normalized, CRMs migrated, and surveys validated with high accuracy.
           </p>
         </motion.div>
 
@@ -220,7 +220,7 @@ export const CaseStudies = () => {
                   </div>
                   <div className="text-center">
                     <div className="text-gold font-bold text-sm sm:text-base lg:text-lg">{study.stats.seoFocus}</div>
-                    <div className="text-[10px] sm:text-xs text-muted-foreground">SEO Focus</div>
+                    <div className="text-[10px] sm:text-xs text-muted-foreground">Focus</div>
                   </div>
                   <div className="text-center">
                     <div className="text-gold font-bold text-sm sm:text-base lg:text-lg">{study.stats.timeframe}</div>

@@ -5,26 +5,26 @@ const steps = [
   {
     icon: Search,
     step: "Step 1",
-    title: "SEO Audit & Strategy",
-    description: "Comprehensive website analysis, keyword research, and competitor analysis. We create a custom SEO roadmap for your business."
+    title: "Intake & Scoping",
+    description: "Share samples and rules. We confirm fields, validations, volumes, SLAs, and delivery format (Sheets, CSV, CRM)."
   },
   {
     icon: FileText,
     step: "Step 2",
-    title: "Content & On-Page SEO",
-    description: "Optimize existing content and create new SEO-focused content. Meta tags, headers, and internal linking strategy."
+    title: "Template & Sample",
+    description: "We build a spreadsheet-style template and deliver a free sample so you can review structure and quality."
   },
   {
     icon: Settings,
     step: "Step 3",
-    title: "Technical Implementation",
-    description: "Site speed optimization, mobile responsiveness, schema markup, and technical SEO fixes for better crawlability."
+    title: "Data Entry & Validation",
+    description: "Our team enters data with keyboard‑first shortcuts and automated checks to prevent duplicates and format issues."
   },
   {
     icon: TrendingUp,
     step: "Step 4",
-    title: "Monitor & Scale",
-    description: "Track rankings, analyze traffic growth, and continuously optimize. Monthly reports and strategy adjustments."
+    title: "QA & Delivery",
+    description: "Second‑pass QA, issue fixes, and final delivery. Ongoing maintenance available for weekly or monthly updates."
   }
 ];
 
@@ -48,13 +48,13 @@ export const HowItWorks = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <span className="inline-block px-4 py-2 bg-foreground text-gold text-sm font-semibold rounded-full mb-4">
-            SEO in 4 Steps
+            Data Entry in 4 Steps
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             How It <span className="text-gold">Works</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            From audit to ranking improvements in 30-90 days. Proven process, measurable results.
+            From scoping to delivery in 24–72 hours for most projects. Clear rules, consistent outputs, and measurable quality.
           </p>
         </motion.div>
 
@@ -121,7 +121,7 @@ export const HowItWorks = () => {
             transition={{ duration: prefersReducedMotion ? 0.3 : 0.5 }}
           >
             <a href="#contact" className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-foreground text-background hover:bg-gold hover:text-foreground transition-colors duration-300 font-semibold ring-1 ring-foreground/20">
-              Book SEO audit
+              Get Free Sample
             </a>
           </motion.div>
         </div>

@@ -15,7 +15,7 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* SEO Agency Dark Blue + Blue Theme (Light, professional) */
-    --background: 0 0% 100%;
+    --background: 140 20% 98%; /* Slight green tint for page background */
     --foreground: 0 0% 0%; /* Black text as requested */
 
     --card: 0 0% 100%;
@@ -24,7 +24,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%; /* Black text */
 
-    --primary: 220 100% 50%; /* Bright blue for highlights */
+    --primary: 142 71% 35%; /* Green primary */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 15% 96%;
@@ -33,7 +33,7 @@ All colors MUST be HSL.
     --muted: 220 13% 97%;
     --muted-foreground: 220 10% 40%;
 
-    --accent: 220 100% 50%; /* Blue accent for highlights */
+    --accent: 142 71% 35%; /* Green accent */
     --accent-foreground: 0 0% 100%;
 
     --hover: 220 15% 93%;
@@ -48,21 +48,21 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
-    /* Custom tokens for SEO Agency */
-    --gold: 220 100% 50%;      /* Blue for highlights */
-    --gold-dark: 220 100% 40%; /* Darker blue */
-    --gold-light: 220 100% 60%; /* Lighter blue */
-    --brand-blue: 220 85% 25%; /* Dark blue for details */
+    /* Custom tokens tuned to green */
+    --gold: 142 71% 35%;      /* Green highlight */
+    --gold-dark: 142 72% 28%; /* Darker green */
+    --gold-light: 142 54% 50%; /* Lighter green */
+    --brand-blue: 142 85% 20%; /* Dark green used by brand token */
     
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(220 100% 50%) 0%, hsl(220 85% 25%) 100%);
-    --gradient-dark: linear-gradient(180deg, hsl(220 85% 15%) 0%, hsl(220 85% 20%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(142 71% 40%) 0%, hsl(142 85% 20%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(142 30% 12%) 0%, hsl(142 30% 16%) 100%);
     
     /* Shadows */
-    --shadow-gold: 0 10px 40px -10px hsl(220 100% 50% / 0.3);
-    --shadow-gold-lg: 0 25px 80px -20px hsl(220 100% 50% / 0.4);
-    --shadow-elegant: 0 20px 60px -15px hsl(220 85% 25% / 0.3);
-    --shadow-brutal: 8px 8px 0px hsl(220 100% 50%);
+    --shadow-gold: 0 10px 40px -10px hsl(142 71% 40% / 0.3);
+    --shadow-gold-lg: 0 25px 80px -20px hsl(142 71% 40% / 0.4);
+    --shadow-elegant: 0 20px 60px -15px hsl(142 30% 20% / 0.3);
+    --shadow-brutal: 8px 8px 0px hsl(142 71% 40%);
     
     /* Transitions */
     --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -86,49 +86,49 @@ All colors MUST be HSL.
 
   .dark {
     /* Enhanced SEO Agency Dark Mode */
-    --background: 220 85% 6%; /* Deeper dark blue background */
+    --background: 140 15% 7%; /* Slightly greener dark background */
     --foreground: 0 0% 98%; /* Softer white for better readability */
 
-    --card: 220 85% 10%; /* Slightly lighter cards for better contrast */
+    --card: 140 10% 10%; /* Slightly lighter cards */
     --card-foreground: 0 0% 98%;
 
-    --popover: 220 85% 10%;
+    --popover: 140 10% 10%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 220 100% 65%; /* Brighter blue for better visibility */
-    --primary-foreground: 220 85% 6%;
+    --primary: 142 54% 45%; /* Brighter green for dark mode */
+    --primary-foreground: 140 10% 6%;
 
-    --secondary: 220 30% 18%; /* Better contrast for secondary elements */
+    --secondary: 140 15% 16%; /* Better contrast for secondary elements */
     --secondary-foreground: 0 0% 95%;
 
-    --muted: 220 30% 18%;
-    --muted-foreground: 220 15% 75%; /* Improved readability */
+    --muted: 140 15% 16%;
+    --muted-foreground: 140 10% 75%; /* Improved readability */
 
-    --accent: 220 100% 65%; /* Consistent with primary */
-    --accent-foreground: 220 85% 6%;
+    --accent: 142 54% 45%; /* Consistent green */
+    --accent-foreground: 140 10% 6%;
 
-    --hover: 220 35% 22%; /* More pronounced hover states */
+    --hover: 140 20% 20%; /* More pronounced hover states */
     --hover-foreground: 0 0% 98%;
 
     --destructive: 350 84% 55%; /* Slightly brighter for visibility */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 25% 28%; /* Better border visibility */
-    --input: 220 25% 28%;
-    --ring: 220 100% 65%;
+    --border: 140 12% 28%; /* Better border visibility */
+    --input: 140 12% 28%;
+    --ring: 142 54% 45%;
     
-    --sidebar-background: 220 85% 8%;
+    --sidebar-background: 140 10% 8%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 220 100% 65%;
-    --sidebar-primary-foreground: 220 85% 6%;
-    --sidebar-accent: 220 30% 18%;
+    --sidebar-primary: 142 54% 45%;
+    --sidebar-primary-foreground: 140 10% 6%;
+    --sidebar-accent: 140 15% 16%;
     --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 220 25% 28%;
-    --sidebar-ring: 220 100% 65%;
+    --sidebar-border: 140 12% 28%;
+    --sidebar-ring: 142 54% 45%;
 
     --heading-color: 0 0% 98%;
-    --brand-blue: 220 100% 75%; /* Even brighter for dark theme visibility */
-    --gold: 220 100% 65%; /* Consistent blue highlights */
+    --brand-blue: 142 50% 65%; /* Brighter green in dark theme */
+    --gold: 142 54% 45%; /* Consistent green highlights */
   }
 }
 
@@ -223,5 +223,23 @@ All colors MUST be HSL.
   .app-shell {
     padding-left: var(--side-padding);
     padding-right: var(--side-padding);
+  }
+
+  .table-zebra-invert tbody tr:nth-child(odd) {
+    background-color: hsl(0 0% 100%) !important;
+  }
+  .table-zebra-invert tbody tr:nth-child(even) {
+    background-color: hsl(142 76% 97%) !important;
+  }
+  .dark .table-zebra-invert tbody tr:nth-child(odd) {
+    background-color: hsl(var(--background)) !important;
+  }
+  .dark .table-zebra-invert tbody tr:nth-child(even) {
+    background-color: hsl(160 84% 12%) !important;
+  }
+
+  .table-zebra-none tbody tr:nth-child(odd),
+  .table-zebra-none tbody tr:nth-child(even) {
+    background-color: transparent !important;
   }
 }
