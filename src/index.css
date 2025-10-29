@@ -85,8 +85,8 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Dark Mode: Green background with white text */
-    --background: 152 50% 15%; /* Vibrant green background */
+    /* Dark Mode: Brighter green background */
+    --background: 152 55% 22%; /* Brighter green background (was 152 50% 15%) */
     --foreground: 0 0% 100%; /* Pure white text */
 
     --card: 152 45% 18%; /* Lighter green surface */
