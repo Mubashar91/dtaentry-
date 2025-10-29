@@ -86,49 +86,52 @@ All colors MUST be HSL.
 
   .dark {
     /* Enhanced SEO Agency Dark Mode */
-    --background: 142 30% 10%; /* Deeper, more saturated green dark background */
-    --foreground: 0 0% 98%; /* Softer white for better readability */
+    --background: 152 22% 9%; /* Neutral deep green base (Sheets-like) */
+    --foreground: 0 0% 96%; /* Soft white for readability */
 
-    --card: 140 10% 10%; /* Slightly lighter cards */
-    --card-foreground: 0 0% 98%;
+    --card: 152 16% 12%; /* Surface-1 */
+    --card-foreground: 0 0% 96%;
 
-    --popover: 140 10% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 152 16% 12%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 142 54% 45%; /* Brighter green for dark mode */
-    --primary-foreground: 140 10% 6%;
+    --primary: 152 72% 34%; /* Google Sheets green (#0F9D58 approx) */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 140 15% 16%; /* Better contrast for secondary elements */
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 152 12% 16%; /* Surface-2 */
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 140 15% 16%;
-    --muted-foreground: 140 10% 75%; /* Improved readability */
+    --muted: 152 10% 20%; /* Subtle neutral green */
+    --muted-foreground: 152 15% 75%;
 
-    --accent: 142 54% 45%; /* Consistent green */
-    --accent-foreground: 140 10% 6%;
+    --accent: 152 72% 34%;
+    --accent-foreground: 0 0% 100%;
 
-    --hover: 140 20% 20%; /* More pronounced hover states */
-    --hover-foreground: 0 0% 98%;
+    --hover: 152 15% 22%; /* Hover on surfaces */
+    --hover-foreground: 0 0% 96%;
 
-    --destructive: 350 84% 55%; /* Slightly brighter for visibility */
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 355 75% 54%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 140 12% 28%; /* Better border visibility */
-    --input: 140 12% 28%;
-    --ring: 142 54% 45%;
+    --border: 152 10% 26%; /* Clearer borders */
+    --input: 152 10% 26%;
+    --ring: 152 72% 34%;
     
-    --sidebar-background: 140 10% 8%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 142 54% 45%;
-    --sidebar-primary-foreground: 140 10% 6%;
-    --sidebar-accent: 140 15% 16%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 140 12% 28%;
-    --sidebar-ring: 142 54% 45%;
+    --sidebar-background: 152 18% 10%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 152 72% 34%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 152 12% 16%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 152 10% 26%;
+    --sidebar-ring: 152 72% 34%;
 
     --heading-color: 0 0% 98%;
-    --brand-blue: 142 50% 65%; /* Brighter green in dark theme */
-    --gold: 142 54% 45%; /* Consistent green highlights */
+    --brand-blue: 152 72% 34%; /* Use brand token as Sheets green */
+    --gold: 152 72% 38%; /* Vibrant accent highlight */
+
+    /* Dark gradient tuned to deep green */
+    --gradient-dark: linear-gradient(180deg, hsl(152 20% 8%) 0%, hsl(152 20% 12%) 100%);
   }
 }
 
