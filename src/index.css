@@ -86,13 +86,13 @@ All colors MUST be HSL.
 
   .dark {
     /* Enhanced SEO Agency Dark Mode */
-    --background: 152 22% 9%; /* Neutral deep green base (Sheets-like) */
+    --background: 152 35% 10%; /* More vibrant deep green base */
     --foreground: 0 0% 96%; /* Soft white for readability */
 
-    --card: 152 16% 12%; /* Surface-1 */
+    --card: 152 28% 13%; /* Surface-1 */
     --card-foreground: 0 0% 96%;
 
-    --popover: 152 16% 12%;
+    --popover: 152 28% 13%;
     --popover-foreground: 0 0% 96%;
 
     --primary: 152 72% 34%; /* Google Sheets green (#0F9D58 approx) */
