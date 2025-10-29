@@ -65,15 +65,15 @@ export const FAQ = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2, type: "spring", stiffness: 120 }}
             >
-              <div className="px-4 py-2 bg-gold/10 backdrop-blur-sm rounded-full text-sm font-semibold text-gold flex items-center gap-2 border border-gold/20">
+              <div className="px-4 py-2 bg-gradient-to-br from-green-600 via-green-700 to-green-800 backdrop-blur-sm rounded-full text-sm font-semibold text-white flex items-center gap-2 border border-green-600/20">
                 <HelpCircle className="w-4 h-4" />
                 <span>Got Questions?</span>
               </div>
             </motion.div>
 
             {/* Heading - Centered */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-5 md:mb-6 text-foreground px-2" style={{ textAlign: 'center' }}>
-              Frequently Asked <span className="text-gold">Questions</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-5 md:mb-6 text-green-800 dark:text-foreground px-2" style={{ textAlign: 'center' }}>
+              Frequently Asked <span className="text-green-600 dark:text-gold">Questions</span>
             </h2>
             {/* Description - Centered */}
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed px-2 text-center mx-auto">
@@ -98,17 +98,17 @@ export const FAQ = () => {
                 >
                   <AccordionItem 
                     value={`item-${index}`}
-                    className="group bg-card/50 backdrop-blur-sm border-2 border-border/50 rounded-xl sm:rounded-2xl px-4 sm:px-6 md:px-8 hover:border-gold hover:bg-card hover:shadow-lg transition-all duration-300 data-[state=open]:border-gold data-[state=open]:bg-card data-[state=open]:shadow-xl"
+                    className="group bg-white dark:bg-gradient-to-br dark:from-green-900 dark:via-green-900 dark:to-green-950 border-2 border-green-200 dark:border-green-800/50 rounded-xl sm:rounded-2xl px-4 sm:px-6 md:px-8 hover:border-green-300 dark:hover:border-green-700 hover:shadow-lg transition-all duration-300 data-[state=open]:border-green-400 dark:data-[state=open]:border-green-700 data-[state=open]:shadow-xl"
                   >
-                    <AccordionTrigger className="text-left text-base sm:text-lg md:text-xl font-semibold hover:text-gold py-5 sm:py-6 hover:no-underline group-hover:text-gold transition-colors">
+                    <AccordionTrigger className="text-left text-base sm:text-lg md:text-xl font-semibold text-green-800 dark:text-white hover:text-green-600 dark:hover:text-green-300 py-5 sm:py-6 hover:no-underline group-hover:text-green-600 dark:group-hover:text-green-300 transition-colors">
                       <span className="flex items-start gap-3">
-                        <span className="flex-shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gold/10 flex items-center justify-center text-gold text-sm font-bold mt-0.5">
+                        <span className="flex-shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-green-100 dark:bg-green-800/50 flex items-center justify-center text-green-700 dark:text-green-300 text-sm font-bold mt-0.5">
                           {index + 1}
                         </span>
                         <span className="flex-1">{faq.question}</span>
                       </span>
                     </AccordionTrigger>
-                    <AccordionContent className="text-sm sm:text-base text-muted-foreground leading-relaxed pt-2 pb-5 sm:pb-6 pl-9 sm:pl-10">
+                    <AccordionContent className="text-sm sm:text-base text-green-700 dark:text-green-100 leading-relaxed pt-2 pb-5 sm:pb-6 pl-9 sm:pl-10">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
@@ -125,32 +125,32 @@ export const FAQ = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
           >
-            <div className="p-5 sm:p-6 bg-gradient-to-br from-gold/10 via-gold/5 to-transparent backdrop-blur-sm border-2 border-gold/20 rounded-xl sm:rounded-2xl group hover:border-gold/40 transition-all duration-300">
+            <div className="p-5 sm:p-6 bg-white dark:bg-gradient-to-br dark:from-green-900 dark:via-green-900 dark:to-green-950 border-2 border-green-200 dark:border-green-800/50 rounded-xl sm:rounded-2xl group hover:border-green-300 dark:hover:border-green-700 transition-all duration-300">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 p-3 bg-gold/20 rounded-xl group-hover:bg-gold/30 transition-colors">
-                  <Shield className="w-6 h-6 text-gold" />
+                <div className="flex-shrink-0 p-3 bg-green-100 dark:bg-green-800/50 rounded-xl group-hover:bg-green-200 dark:group-hover:bg-green-700/50 transition-colors">
+                  <Shield className="w-6 h-6 text-green-700 dark:text-green-300" />
                 </div>
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-foreground mb-1.5">
+                  <h3 className="text-base sm:text-lg font-bold text-green-800 dark:text-white mb-1.5">
                     Data Security & Confidentiality
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-green-700 dark:text-green-100 leading-relaxed">
                     NDA on request, least‑privilege access, encrypted transfer, and audit logs available for sensitive workflows.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="p-5 sm:p-6 bg-gradient-to-br from-gold/10 via-gold/5 to-transparent backdrop-blur-sm border-2 border-gold/20 rounded-xl sm:rounded-2xl group hover:border-gold/40 transition-all duration-300">
+            <div className="p-5 sm:p-6 bg-white dark:bg-gradient-to-br dark:from-green-900 dark:via-green-900 dark:to-green-950 border-2 border-green-200 dark:border-green-800/50 rounded-xl sm:rounded-2xl group hover:border-green-300 dark:hover:border-green-700 transition-all duration-300">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 p-3 bg-gold/20 rounded-xl group-hover:bg-gold/30 transition-colors">
-                  <Zap className="w-6 h-6 text-gold" />
+                <div className="flex-shrink-0 p-3 bg-green-100 dark:bg-green-800/50 rounded-xl group-hover:bg-green-200 dark:group-hover:bg-green-700/50 transition-colors">
+                  <Zap className="w-6 h-6 text-green-700 dark:text-green-300" />
                 </div>
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-foreground mb-1.5">
+                  <h3 className="text-base sm:text-lg font-bold text-green-800 dark:text-white mb-1.5">
                     Complete Data Ops
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-green-700 dark:text-green-100 leading-relaxed">
                     Intake • Cleaning • Validation • Deduping • QA • Delivery • Maintenance
                   </p>
                 </div>
@@ -160,28 +160,28 @@ export const FAQ = () => {
 
           {/* Still have questions CTA */}
           <motion.div 
-            className="mt-8 sm:mt-10 md:mt-12 p-6 sm:p-8 bg-card/50 backdrop-blur-sm border-2 border-border/50 rounded-xl sm:rounded-2xl text-center"
+            className="mt-8 sm:mt-10 md:mt-12 p-6 sm:p-8 bg-white dark:bg-gradient-to-br dark:from-green-900 dark:via-green-900 dark:to-green-950 border-2 border-green-200 dark:border-green-800/50 rounded-xl sm:rounded-2xl text-center"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
           >
-            <p className="text-base sm:text-lg md:text-xl font-semibold text-foreground mb-2">
+            <p className="text-base sm:text-lg md:text-xl font-semibold text-green-800 dark:text-white mb-2">
               Still have questions?
             </p>
-            <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-5">
+            <p className="text-sm sm:text-base text-green-700 dark:text-green-100 mb-4 sm:mb-5">
               Our team is here to help. Get in touch and we'll respond within 2 hours.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a 
                 href="#contact" 
-                className="inline-flex items-center justify-center px-6 py-3 bg-gold text-foreground font-semibold rounded-xl hover:bg-gold/90 transition-all duration-300 hover:scale-105"
+                className="inline-flex items-center justify-center px-6 py-3 bg-white text-green-900 font-semibold rounded-xl hover:bg-white/90 transition-all duration-300 hover:scale-105"
               >
                 Contact Support
               </a>
               <a 
                 href="#pricing" 
-                className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-border text-foreground font-semibold rounded-xl hover:border-gold hover:bg-gold/5 transition-all duration-300"
+                className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:border-green-300 hover:bg-green-800/30 transition-all duration-300"
               >
                 View Pricing
               </a>

@@ -82,7 +82,7 @@ export const Navbar = () => {
               <span className="text-foreground font-bold text-base sm:text-lg md:text-lg lg:text-xl">S</span>
             </motion.div>
             <motion.span 
-              className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-foreground hover:text-gold transition-colors duration-300"
+              className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-green-800 dark:text-foreground hover:text-green-600 dark:hover:text-gold transition-colors duration-300"
               whileHover={{ scale: 1.05 }}
             >
               SEO Pro
@@ -98,10 +98,10 @@ export const Navbar = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                className="relative text-foreground hover:text-gold transition-all duration-300 font-medium text-sm md:text-sm lg:text-base px-2 md:px-2.5 lg:px-3 py-2 rounded-lg hover:bg-gold/10 group whitespace-nowrap"
+                className="relative text-green-800 dark:text-foreground hover:text-green-600 dark:hover:text-gold transition-all duration-300 font-medium text-sm md:text-sm lg:text-base px-2 md:px-2.5 lg:px-3 py-2 rounded-lg hover:bg-green-100 dark:hover:bg-gold/10 group whitespace-nowrap"
               >
                 {item.name}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gold group-hover:w-3/4 transition-all duration-300" />
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-green-600 dark:bg-gold group-hover:w-3/4 transition-all duration-300" />
               </motion.a>
             ))}
           </div>

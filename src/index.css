@@ -14,37 +14,37 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* SEO Agency Dark Blue + Blue Theme (Light, professional) */
-    --background: 0 0% 100%; /* Pure white background for light mode */
-    --foreground: 0 0% 0%; /* Black text as requested */
+    /* Light Mode: White background with dark text */
+    --background: 0 0% 100%; /* Pure white background */
+    --foreground: 0 0% 9%; /* Dark text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%; /* Black text */
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 0 0% 9%; /* Dark text on cards */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%; /* Black text */
+    --popover-foreground: 0 0% 9%;
 
     --primary: 142 71% 35%; /* Green primary */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 15% 96%;
-    --secondary-foreground: 0 0% 0%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
 
-    --muted: 220 13% 97%;
-    --muted-foreground: 220 10% 40%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
     --accent: 142 71% 35%; /* Green accent */
     --accent-foreground: 0 0% 100%;
 
-    --hover: 220 15% 93%;
-    --hover-foreground: 0 0% 0%;
+    --hover: 0 0% 96%;
+    --hover-foreground: 0 0% 9%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 86%;
-    --input: 220 13% 86%;
-    --ring: 220 100% 50%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 142 71% 35%;
 
     --radius: 0.5rem;
 
@@ -69,69 +69,69 @@ All colors MUST be HSL.
     --transition-spring: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    --sidebar-background: 220 15% 97%;
-    --sidebar-foreground: 0 0% 0%;
-    --sidebar-primary: 220 100% 50%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 9%;
+    --sidebar-primary: 142 71% 35%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 15% 95%;
-    --sidebar-accent-foreground: 0 0% 0%;
-    --sidebar-border: 220 13% 88%;
-    --sidebar-ring: 220 100% 50%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 142 71% 35%;
 
     /* Typographic + layout tokens */
-    --heading-color: 0 0% 0%; /* Black headings */
+    --heading-color: 0 0% 9%; /* Dark headings */
     --heading-size: 1.5rem;
     --side-padding: 1.5rem;
   }
 
   .dark {
-    /* Enhanced SEO Agency Dark Mode */
-    --background: 152 35% 10%; /* More vibrant deep green base */
-    --foreground: 0 0% 96%; /* Soft white for readability */
+    /* Dark Mode: Green background with white text */
+    --background: 152 50% 15%; /* Vibrant green background */
+    --foreground: 0 0% 100%; /* Pure white text */
 
-    --card: 152 28% 13%; /* Surface-1 */
-    --card-foreground: 0 0% 96%;
+    --card: 152 45% 18%; /* Lighter green surface */
+    --card-foreground: 0 0% 100%; /* White text */
 
-    --popover: 152 28% 13%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 152 45% 18%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 152 72% 34%; /* Google Sheets green (#0F9D58 approx) */
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 0% 100%; /* White primary */
+    --primary-foreground: 152 50% 15%; /* Green text on white */
 
-    --secondary: 152 12% 16%; /* Surface-2 */
-    --secondary-foreground: 0 0% 96%;
+    --secondary: 152 40% 20%; /* Green surface */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 152 10% 20%; /* Subtle neutral green */
-    --muted-foreground: 152 15% 75%;
+    --muted: 152 35% 25%; /* Muted green */
+    --muted-foreground: 0 0% 90%;
 
-    --accent: 152 72% 34%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 0 0% 100%;
+    --accent-foreground: 152 50% 15%;
 
-    --hover: 152 15% 22%; /* Hover on surfaces */
-    --hover-foreground: 0 0% 96%;
+    --hover: 152 45% 22%; /* Hover green */
+    --hover-foreground: 0 0% 100%;
 
     --destructive: 355 75% 54%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 152 10% 26%; /* Clearer borders */
-    --input: 152 10% 26%;
-    --ring: 152 72% 34%;
+    --border: 152 30% 30%; /* Green borders */
+    --input: 152 30% 30%;
+    --ring: 0 0% 100%;
     
-    --sidebar-background: 152 18% 10%;
-    --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 152 72% 34%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 152 12% 16%;
-    --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 152 10% 26%;
-    --sidebar-ring: 152 72% 34%;
+    --sidebar-background: 152 50% 15%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 152 50% 15%;
+    --sidebar-accent: 152 45% 18%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 152 30% 30%;
+    --sidebar-ring: 0 0% 100%;
 
-    --heading-color: 0 0% 98%;
-    --brand-blue: 152 72% 34%; /* Use brand token as Sheets green */
-    --gold: 152 72% 38%; /* Vibrant accent highlight */
+    --heading-color: 0 0% 100%; /* White headings */
+    --brand-blue: 0 0% 100%; /* White brand token */
+    --gold: 0 0% 100%; /* White accent highlight */
 
-    /* Dark gradient tuned to deep green */
-    --gradient-dark: linear-gradient(180deg, hsl(152 20% 8%) 0%, hsl(152 20% 12%) 100%);
+    /* Dark gradient with green tones */
+    --gradient-dark: linear-gradient(180deg, hsl(152 50% 12%) 0%, hsl(152 50% 18%) 100%);
   }
 }
 

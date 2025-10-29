@@ -42,8 +42,8 @@ export const ToolsIntegration = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 px-2">
-            Seamless <span className="text-gold">Data Integrations</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 px-2 text-green-800 dark:text-foreground">
+            Seamless <span className="text-green-600 dark:text-gold">Data Integrations</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl px-2">
             We plug into your stack—spreadsheets, CRMs, eCommerce, databases, and automation tools—for smooth intake and delivery.
@@ -61,16 +61,16 @@ export const ToolsIntegration = () => {
             {tools.slice(0, 18).map((tool, index) => (
               <motion.div 
                 key={index}
-                className="bg-card border-2 border-border rounded-lg p-3 sm:p-4 text-center hover:border-gold hover:shadow-gold transition-all duration-300 group"
+                className="bg-white dark:bg-gradient-to-br dark:from-green-900 dark:via-green-900 dark:to-green-950 border-2 border-green-200 dark:border-green-800/50 rounded-lg p-3 sm:p-4 text-center hover:border-green-300 dark:hover:border-green-700 hover:shadow-[0_10px_30px_-10px_rgba(34,197,94,0.25)] dark:hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.4)] transition-all duration-300 group"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.05, ease: "easeOut" }}
               >
-                <p className="text-sm sm:text-base font-semibold text-foreground group-hover:text-gold transition-colors">
+                <p className="text-sm sm:text-base font-semibold text-green-800 dark:text-white transition-colors">
                   {tool.name}
                 </p>
-                <p className="text-[10px] sm:text-xs text-muted-foreground mt-1">
+                <p className="text-[10px] sm:text-xs text-green-600 dark:text-green-200 mt-1">
                   {tool.category}
                 </p>
               </motion.div>
@@ -78,17 +78,17 @@ export const ToolsIntegration = () => {
           </motion.div>
 
           <motion.div 
-            className="bg-card border-2 border-gold/30 rounded-lg sm:rounded-xl p-5 sm:p-6 md:p-8 text-center"
+            className="bg-white dark:bg-gradient-to-br dark:from-green-900 dark:via-green-900 dark:to-green-950 border-2 border-green-200 dark:border-green-800/50 rounded-lg sm:rounded-xl p-5 sm:p-6 md:p-8 text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
           >
-            <p className="text-base sm:text-lg text-foreground mb-3 sm:mb-4">
-              <span className="font-bold text-gold">Using a different system?</span> We adapt. 
+            <p className="text-base sm:text-lg text-green-800 dark:text-white mb-3 sm:mb-4">
+              <span className="font-bold text-green-700 dark:text-green-300">Using a different system?</span> We adapt. 
             </p>
-            <p className="text-sm sm:text-base text-muted-foreground">
-              Share your format or API—CSV, Sheets, CRM, or DB. We’ll match your workflow end‑to‑end.
+            <p className="text-sm sm:text-base text-green-700 dark:text-green-100">
+              Share your format or API—CSV, Sheets, CRM, or DB. We'll match your workflow end‑to‑end.
             </p>
           </motion.div>
         </div>

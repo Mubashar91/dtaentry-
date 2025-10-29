@@ -51,7 +51,7 @@ export const Hero = () => {
                 stiffness: 120,
                 damping: 20
               }}
-              className="inline-block mb-3 sm:mb-4 md:mb-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gold/10 border border-gold/30 rounded-full text-gold text-xs sm:text-sm font-semibold hover:bg-gold/20 hover:scale-105 transition-all duration-300 cursor-default"
+              className="inline-block mb-3 sm:mb-4 md:mb-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-br from-green-600 via-green-700 to-green-800 border border-green-600/30 rounded-full text-white text-xs sm:text-sm font-semibold hover:scale-105 transition-all duration-300 cursor-default"
             >
               <motion.span
                 animate={{ 
@@ -62,14 +62,14 @@ export const Hero = () => {
                   repeat: Infinity, 
                   ease: "linear" 
                 }}
-                className="bg-gradient-to-r from-gold via-brand-blue to-gold bg-[length:200%_100%] bg-clip-text text-transparent"
+                className="text-white"
               >
                 Trusted by 500+ Businesses Worldwide
               </motion.span>
             </motion.div>
             
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-5 md:mb-6 leading-[1.15] sm:leading-[1.12] md:leading-[1.1]">
-              Fast, Accurate <span className="bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">Data Entry Services</span>
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-5 md:mb-6 leading-[1.15] sm:leading-[1.12] md:leading-[1.1] text-green-800 dark:text-foreground">
+              Fast, Accurate <span className="bg-gradient-to-r from-green-600 to-green-800 dark:from-[hsl(var(--gold))] dark:to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">Data Entry Services</span>
             </h1>
             
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-3 sm:mb-4 md:mb-5 leading-relaxed max-w-xl">
@@ -83,10 +83,9 @@ export const Hero = () => {
               className="space-y-3"
             >
               <Button 
-                variant="gold" 
                 size="lg"
                 onClick={() => window.location.href = '/book-meeting'}
-                className="group relative w-full sm:w-auto text-sm sm:text-base md:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 md:py-7 h-auto font-bold shadow-gold-lg transform hover:scale-[1.06] hover:-translate-y-2 transition-all duration-400 hover:brightness-110 cursor-pointer overflow-hidden rounded-xl border-2 border-transparent hover:border-yellow-400/30"
+                className="group relative w-full sm:w-auto text-sm sm:text-base md:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 md:py-7 h-auto font-bold bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white hover:from-green-500 hover:via-green-600 hover:to-green-700 transform hover:scale-[1.06] hover:-translate-y-2 transition-all duration-400 cursor-pointer overflow-hidden rounded-xl border-2 border-transparent hover:border-green-400/30 shadow-[0_20px_60px_-15px_rgba(34,197,94,0.6)]"
                 aria-label="Book a free 15-minute data entry consultation"
               >
                 {/* Subtle shimmer effect */}
@@ -105,7 +104,7 @@ export const Hero = () => {
                 />
                 
                 {/* Enhanced hover glow */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-[hsl(var(--gold))] via-[hsl(var(--brand-blue))] to-[hsl(var(--gold))] rounded-xl blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-300" aria-hidden="true" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-green-500 via-green-600 to-green-700 rounded-xl blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-300" aria-hidden="true" />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
                 
                 <span className="relative z-10 flex items-center justify-center gap-2.5">
@@ -165,7 +164,7 @@ export const Hero = () => {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="bg-gradient-to-br from-[hsl(var(--gold))] via-[hsl(var(--brand-blue))] to-[hsl(var(--gold))] text-background px-3 py-2 sm:px-4 sm:py-2.5 rounded-full shadow-lg border-2 border-background flex items-center gap-1.5 sm:gap-2"
+                className="bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white px-3 py-2 sm:px-4 sm:py-2.5 rounded-full shadow-lg border-2 border-background flex items-center gap-1.5 sm:gap-2"
               >
                 <Award className="w-3 h-3 sm:w-4 sm:h-4" aria-hidden="true" />
                 <span className="text-[10px] sm:text-xs font-bold whitespace-nowrap">Top Rated</span>
@@ -213,7 +212,7 @@ export const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1 }}
-                className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 md:bottom-6 md:left-6 md:right-6 backdrop-blur-xl bg-card/95 border border-brand/30 rounded-xl p-4 sm:p-5 shadow-2xl"
+                className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 md:bottom-6 md:left-6 md:right-6 backdrop-blur-xl bg-gradient-to-br from-green-900 via-green-900 to-green-950 border border-green-800/50 rounded-xl p-4 sm:p-5 shadow-2xl"
                 style={{ transform: "translateZ(80px)" }}
               >
                 <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6">
@@ -228,9 +227,9 @@ export const Hero = () => {
                       animate={{ y: [-3, 3, -3] }}
                       transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                     >
-                      <Search className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-brand/80 group-hover/stat:text-brand transition-colors" aria-hidden="true" />
-                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">5M+</div>
-                      <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground font-medium">Records Processed</div>
+                      <Search className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-green-400 transition-colors" aria-hidden="true" />
+                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">5M+</div>
+                      <div className="text-[9px] sm:text-[10px] md:text-xs text-green-200 font-medium">Records Processed</div>
                     </motion.div>
                   </motion.div>
                   
@@ -245,9 +244,9 @@ export const Hero = () => {
                       animate={{ y: [-3, 3, -3] }}
                       transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
                     >
-                      <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-brand/80 group-hover/stat:text-brand transition-colors" aria-hidden="true" />
-                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">24–48h</div>
-                      <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground font-medium">Avg Turnaround</div>
+                      <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-green-400 transition-colors" aria-hidden="true" />
+                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">24–48h</div>
+                      <div className="text-[9px] sm:text-[10px] md:text-xs text-green-200 font-medium">Avg Turnaround</div>
                     </motion.div>
                   </motion.div>
                   
@@ -262,9 +261,9 @@ export const Hero = () => {
                       animate={{ y: [-3, 3, -3] }}
                       transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
                     >
-                      <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-brand/80 group-hover/stat:text-brand transition-colors" aria-hidden="true" />
-                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[hsl(var(--gold))] to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">99.9%</div>
-                      <div className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground font-medium">Accuracy (QA)</div>
+                      <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-green-400 transition-colors" aria-hidden="true" />
+                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">99.9%</div>
+                      <div className="text-[9px] sm:text-[10px] md:text-xs text-green-200 font-medium">Accuracy (QA)</div>
                     </motion.div>
                   </motion.div>
                 </div>

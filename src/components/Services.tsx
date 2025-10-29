@@ -70,11 +70,11 @@ export const Services = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 bg-gradient-to-br from-[hsl(var(--gold))] via-[hsl(var(--brand-blue))] to-[hsl(var(--gold))] text-foreground text-xs sm:text-sm md:text-base font-semibold rounded-full mb-3 sm:mb-4">
+          <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white text-xs sm:text-sm md:text-base font-semibold rounded-full mb-3 sm:mb-4">
             Our Data Entry Services
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-5 px-2">
-            How We <span className="text-gold">Power</span> Your Data Ops
+          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-5 px-2 text-green-800 dark:text-foreground">
+            How We <span className="text-green-600 dark:text-gold">Power</span> Your Data Ops
           </h2>
           <p className="text-base sm:text-lg md:text-lg lg:text-xl text-muted-foreground max-w-3xl leading-relaxed px-2">
             End‑to‑end data entry operations—intake, cleaning, validation, and delivery—so your team can focus on growth, not spreadsheets.
@@ -85,7 +85,7 @@ export const Services = () => {
           {services.map((service, index) => (
             <motion.div 
               key={index}
-              className="relative bg-card/50 backdrop-blur-sm border-2 border-brand/30 p-5 sm:p-6 md:p-7 lg:p-9 xl:p-10 rounded-xl sm:rounded-2xl hover:bg-card hover:border-brand hover:shadow-[0_25px_80px_-20px_hsl(var(--brand-blue)/0.4)] transition-all duration-700 group overflow-hidden"
+              className="relative bg-white dark:bg-gradient-to-br dark:from-green-900 dark:via-green-900 dark:to-green-950 text-green-700 dark:text-white border-2 border-green-200 dark:border-green-800/50 p-5 sm:p-6 md:p-7 lg:p-9 xl:p-10 rounded-xl sm:rounded-2xl hover:border-green-300 dark:hover:border-green-700 hover:shadow-[0_25px_80px_-20px_rgba(34,197,94,0.25)] dark:hover:shadow-[0_25px_80px_-20px_rgba(0,0,0,0.4)] transition-all duration-700 group overflow-hidden"
               initial={{ opacity: 0, y: 60, scale: 0.9 }}
               animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 60, scale: 0.9 }}
               transition={{ 
@@ -108,24 +108,24 @@ export const Services = () => {
               }}
             >
               {/* Hover gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--gold)/0.1)] via-[hsl(var(--brand-blue)/0.08)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-br from-green-100/30 dark:from-green-800/30 via-green-50/20 dark:via-green-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               
               <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row items-start gap-4 sm:gap-5 md:gap-5 lg:gap-6 relative z-10">
                 <motion.div 
-                  className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-lg sm:rounded-xl bg-gradient-to-br from-[hsl(var(--gold))] via-[hsl(var(--brand-blue))] to-[hsl(var(--gold))] text-white ring-1 ring-brand/30 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-[0_18px_40px_-12px_hsl(var(--brand-blue)/0.6)]"
+                  className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-lg sm:rounded-xl bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white ring-1 ring-green-600/30 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-[0_18px_40px_-12px_rgba(34,197,94,0.6)]"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
                   <service.icon className="w-7 h-7 sm:w-8 sm:h-8 md:w-7 md:h-7 lg:w-8 lg:h-8" />
                 </motion.div>
                 <div className="flex-1 w-full">
-                  <h3 className="text-xl sm:text-2xl md:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 md:mb-3 text-foreground group-hover:text-brand transition-colors duration-300">
+                  <h3 className="text-xl sm:text-2xl md:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 md:mb-3 text-green-800 dark:text-white transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-sm sm:text-base md:text-sm lg:text-base text-muted-foreground mb-3 sm:mb-4 md:mb-4 leading-relaxed">
+                  <p className="text-sm sm:text-base md:text-sm lg:text-base text-green-700 dark:text-green-100 mb-3 sm:mb-4 md:mb-4 leading-relaxed">
                     {service.description}
                   </p>
-                  <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 md:px-3.5 md:py-1.5 lg:px-4 lg:py-2 bg-brand/10 border border-brand/30 rounded-full text-brand text-xs sm:text-sm md:text-xs lg:text-sm font-semibold group-hover:bg-brand group-hover:text-foreground group-hover:border-brand transition-all duration-500">
+                  <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 md:px-3.5 md:py-1.5 lg:px-4 lg:py-2 bg-green-100 dark:bg-green-800/50 border border-green-300 dark:border-green-700 rounded-full text-green-700 dark:text-green-200 text-xs sm:text-sm md:text-xs lg:text-sm font-semibold group-hover:bg-green-600 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-gray-900 group-hover:border-green-600 dark:group-hover:border-white transition-all duration-500">
                     <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4 mr-1.5 sm:mr-2 md:mr-1.5 lg:mr-2" />
                     <span className="leading-none">{service.benefit}</span>
                   </div>
@@ -133,8 +133,8 @@ export const Services = () => {
               </div>
               
               {/* Decorative corner accent */}
-              <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 md:w-16 md:h-16 lg:w-20 lg:h-20 border-t-2 border-r-2 border-brand/0 group-hover:border-brand/50 rounded-tr-xl sm:rounded-tr-2xl transition-all duration-700" />
-              <div className="absolute bottom-0 left-0 w-12 h-12 sm:w-16 sm:h-16 md:w-16 md:h-16 lg:w-20 lg:h-20 border-b-2 border-l-2 border-brand/0 group-hover:border-brand/50 rounded-bl-xl sm:rounded-bl-2xl transition-all duration-700" />
+              <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 md:w-16 md:h-16 lg:w-20 lg:h-20 border-t-2 border-r-2 border-green-700/0 group-hover:border-green-500/50 rounded-tr-xl sm:rounded-tr-2xl transition-all duration-700" />
+              <div className="absolute bottom-0 left-0 w-12 h-12 sm:w-16 sm:h-16 md:w-16 md:h-16 lg:w-20 lg:h-20 border-b-2 border-l-2 border-green-700/0 group-hover:border-green-500/50 rounded-bl-xl sm:rounded-bl-2xl transition-all duration-700" />
             </motion.div>
           ))}
         </div>
