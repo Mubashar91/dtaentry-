@@ -15,7 +15,7 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* SEO Agency Dark Blue + Blue Theme (Light, professional) */
-    --background: 140 20% 98%; /* Slight green tint for page background */
+    --background: 0 0% 100%; /* Pure white background for light mode */
     --foreground: 0 0% 0%; /* Black text as requested */
 
     --card: 0 0% 100%;
@@ -86,7 +86,7 @@ All colors MUST be HSL.
 
   .dark {
     /* Enhanced SEO Agency Dark Mode */
-    --background: 140 15% 7%; /* Slightly greener dark background */
+    --background: 142 30% 10%; /* Deeper, more saturated green dark background */
     --foreground: 0 0% 98%; /* Softer white for better readability */
 
     --card: 140 10% 10%; /* Slightly lighter cards */
