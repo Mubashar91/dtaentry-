@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const tools = [
   { name: "Google Sheets", category: "Spreadsheets" },
@@ -26,6 +27,7 @@ const tools = [
 const categories = ["Spreadsheets", "Formats", "Automation", "Integration", "CRM", "eCommerce", "Database", "Storage", "OCR/Docs"];
 
 export const ToolsIntegration = () => {
+  const { t } = useTranslation();
   return (
     <motion.section 
       className="relative py-8 sm:py-10 md:py-12 lg:py-14 bg-gradient-to-b from-background via-muted/30 to-background z-60"
@@ -43,10 +45,10 @@ export const ToolsIntegration = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 px-2 text-green-800 dark:text-foreground">
-            Seamless <span className="text-green-600 dark:text-gold">Data Integrations</span>
+            {t("tools.title1")} <span className="text-green-600 dark:text-gold">{t("tools.highlight")}</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl px-2">
-            We plug into your stack—spreadsheets, CRMs, eCommerce, databases, and automation tools—for smooth intake and delivery.
+            {t("tools.subtitle")}
           </p>
         </motion.div>
 
@@ -71,7 +73,7 @@ export const ToolsIntegration = () => {
                   {tool.name}
                 </p>
                 <p className="text-[10px] sm:text-xs text-green-600 dark:text-green-200 mt-1">
-                  {tool.category}
+                  {t(`tools.categories.${tool.category}`)}
                 </p>
               </motion.div>
             ))}
@@ -85,10 +87,10 @@ export const ToolsIntegration = () => {
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
           >
             <p className="text-base sm:text-lg text-green-800 dark:text-white mb-3 sm:mb-4">
-              <span className="font-bold text-green-700 dark:text-green-300">Using a different system?</span> We adapt. 
+              <span className="font-bold text-green-700 dark:text-green-300">{t("tools.adaptTitleStrong")}</span>{t("tools.adaptTitleRest")}
             </p>
             <p className="text-sm sm:text-base text-green-700 dark:text-green-100">
-              Share your format or API—CSV, Sheets, CRM, or DB. We'll match your workflow end‑to‑end.
+              {t("tools.adaptDesc")}
             </p>
           </motion.div>
         </div>

@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Check, Star } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 // Constants
 const MAX_VA_COUNT = 10;
@@ -70,6 +71,8 @@ const plans: PricingPlan[] = [
 
 export const Pricing = () => {
   const [vaCount, setVaCount] = useState(1);
+  const { t } = useTranslation();
+  const planMeta = (t("pricing.plans", { returnObjects: true }) as Array<{ name: string; hours: string; badge: string }>);
   
   const calculateDiscount = (count: number) => {
     return count >= BULK_DISCOUNT_THRESHOLD ? BULK_DISCOUNT_RATE : 0;
@@ -107,13 +110,13 @@ export const Pricing = () => {
             className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white text-xs sm:text-sm font-bold rounded-full mb-3 sm:mb-4 shadow-md"
             whileHover={{ scale: 1.05 }}
           >
-            Transparent Pricing
+            {t("pricing.badge")}
           </motion.span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 text-green-800 dark:text-foreground leading-tight">
-            Simple, <span className="text-green-600 dark:text-gold">Usage-Based</span> Packages
+            {t("pricing.heading1")} <span className="text-green-600 dark:text-gold">{t("pricing.highlight")}</span> {t("pricing.headingTail")}
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            Choose a data entry package sized to your volume. Scale anytime. No hidden fees.
+            {t("pricing.description")}
           </p>
         </motion.div>
 
@@ -156,7 +159,7 @@ export const Pricing = () => {
                   transition={{ duration: 0.8, delay: 0.3 }}
                 />
               
-                {plan.badge && (
+                {planMeta[index]?.badge && (
                   <motion.div 
                     className="absolute -top-4 right-6 px-4 py-1.5 rounded-full text-xs font-bold shadow-xl flex items-center gap-1.5 bg-green-100 dark:bg-green-600 text-green-800 dark:text-white"
                     initial={{ y: -10, opacity: 0 }}
@@ -170,21 +173,21 @@ export const Pricing = () => {
                     >
                       <Star className="w-3.5 h-3.5 fill-current" />
                     </motion.div>
-                    {plan.badge}
+                    {planMeta[index].badge}
                   </motion.div>
                 )}
               
                 {/* Header */}
                 <div className="mb-6 relative z-10">
                   <h3 className="text-2xl sm:text-3xl font-bold mb-2 group-hover:scale-105 transition-transform duration-300 text-green-800 dark:text-white">
-                    {plan.name}
+                    {planMeta[index]?.name || plan.name}
                   </h3>
                   <div className="flex items-center gap-2">
                     <p className="text-sm font-medium text-green-600 dark:text-green-200">
-                      {plan.hours}
+                      {planMeta[index]?.hours || plan.hours}
                     </p>
                     <span className="px-2 py-0.5 text-xs rounded-full bg-green-100 dark:bg-green-800/50 text-green-700 dark:text-green-200">
-                      Data Entry
+                      {t("pricing.tag")}
                     </span>
                   </div>
                 </div>
@@ -201,17 +204,17 @@ export const Pricing = () => {
                       ${plan.price}
                     </motion.span>
                     <span className="text-base ml-1 text-green-600 dark:text-green-200">
-                      /mo
+                      {t("pricing.perMonth")}
                     </span>
                   </div>
                   {plan.setupFee > 0 ? (
                     <p className="text-xs mt-2 text-green-600 dark:text-green-200">
-                      + ${plan.setupFee} setup fee
+                      {t("pricing.setupFeePlus", { amount: plan.setupFee })}
                     </p>
                   ) : (
                     <p className="text-xs mt-2 font-semibold flex items-center gap-1 text-green-700 dark:text-green-300">
                       <Check className="w-3.5 h-3.5 text-green-700 dark:text-green-300" />
-                      No setup fee
+                      {t("pricing.noSetupFee")}
                     </p>
                   )}
                 </div>
@@ -241,11 +244,11 @@ export const Pricing = () => {
                   size="lg"
                   onClick={() => window.location.href = '/book-meeting'}
                   className="w-full relative z-10 font-bold text-base py-6 sm:py-7 rounded-xl transition-all duration-300 group/btn overflow-hidden min-h-[44px] bg-gradient-to-br from-green-600 via-green-700 to-green-800 dark:bg-white text-white dark:text-green-900 hover:from-green-500 hover:via-green-600 hover:to-green-700 dark:hover:bg-white/90 hover:scale-105 border-2 border-green-600 dark:border-white"
-                  aria-label={`Get started with ${plan.name} plan - ${plan.hours} per week at ${Math.round(plan.price * (1 - discount) * vaCount)} per month`}
+                  aria-label={t("pricing.ctaAria", { plan: planMeta[index]?.name || plan.name, hours: planMeta[index]?.hours || plan.hours, price: Math.round(plan.price * (1 - discount) * vaCount) })}
                 >
                   {/* Button shine effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-700" aria-hidden="true" />
-                  <span className="relative">Get Free Sample</span>
+                  <span className="relative">{t("pricing.ctaSample")}</span>
                 </Button>
               </div>
             </motion.div>
@@ -259,7 +262,7 @@ export const Pricing = () => {
     viewport={{ once: true }}
     transition={{ duration: 0.6, delay: 0.5 }}
   >
-    All plans are billed monthly with no long-term contracts. Upgrade or downgrade anytime. Typical turnaround 24–72h depending on volume.
+    {t("pricing.footnote")}
         </motion.p>
       </div>
     </motion.section>

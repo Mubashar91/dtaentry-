@@ -1,35 +1,13 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Search, FileText, Settings, TrendingUp } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-const steps = [
-  {
-    icon: Search,
-    step: "Step 1",
-    title: "Intake & Scoping",
-    description: "Share samples and rules. We confirm fields, validations, volumes, SLAs, and delivery format (Sheets, CSV, CRM)."
-  },
-  {
-    icon: FileText,
-    step: "Step 2",
-    title: "Template & Sample",
-    description: "We build a spreadsheet-style template and deliver a free sample so you can review structure and quality."
-  },
-  {
-    icon: Settings,
-    step: "Step 3",
-    title: "Data Entry & Validation",
-    description: "Our team enters data with keyboard‑first shortcuts and automated checks to prevent duplicates and format issues."
-  },
-  {
-    icon: TrendingUp,
-    step: "Step 4",
-    title: "QA & Delivery",
-    description: "Second‑pass QA, issue fixes, and final delivery. Ongoing maintenance available for weekly or monthly updates."
-  }
-];
+const iconMap = [Search, FileText, Settings, TrendingUp];
 
 export const HowItWorks = () => {
   const prefersReducedMotion = useReducedMotion();
+  const { t } = useTranslation();
+  const steps = (t("howItWorks.steps", { returnObjects: true }) as Array<{ step: string; title: string; description: string }>);
   return (
     <motion.section 
       id="how-it-works"
@@ -48,13 +26,13 @@ export const HowItWorks = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <span className="inline-block px-4 py-2 bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white text-sm font-semibold rounded-full mb-4">
-            Data Entry in 4 Steps
+            {t("howItWorks.badge")}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-green-800 dark:text-foreground">
-            How It <span className="text-green-600 dark:text-gold">Works</span>
+            {t("howItWorks.heading1")} <span className="text-green-600 dark:text-gold">{t("howItWorks.headingHighlight")}</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            From scoping to delivery in 24–72 hours for most projects. Clear rules, consistent outputs, and measurable quality.
+            {t("howItWorks.description")}
           </p>
         </motion.div>
 
@@ -75,7 +53,7 @@ export const HowItWorks = () => {
                   transition={{ duration: 0.45, ease: "easeInOut" }}
                 >
                   <div className="absolute inset-0 rounded-full bg-green-500/20 blur-md group-hover:blur-lg transition-all duration-500" />
-                  <step.icon className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 text-white relative z-10" />
+                  {(() => { const Icon = iconMap[index]; return <Icon className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 text-white relative z-10" />; })()}
                   <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-7 h-7 sm:w-8 sm:h-8 bg-green-100 dark:bg-green-800 text-green-800 dark:text-white rounded-full flex items-center justify-center text-xs sm:text-sm font-bold border-2 border-green-600 dark:border-green-600">
                     {index + 1}
                   </div>
@@ -121,7 +99,7 @@ export const HowItWorks = () => {
             transition={{ duration: prefersReducedMotion ? 0.3 : 0.5 }}
           >
             <a href="#contact" className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white text-green-900 hover:bg-white/90 hover:scale-105 transition-all duration-300 font-semibold shadow-lg">
-              Get Free Sample
+              {t("howItWorks.cta")}
             </a>
           </motion.div>
         </div>

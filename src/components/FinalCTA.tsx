@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle, Sparkles, Clock, CheckCircle2, Award, FileText } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export const FinalCTA = () => {
+  const { t } = useTranslation();
   return (
     <motion.section 
       className="relative overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 bg-gradient-to-br from-green-900 via-green-800 to-green-950 z-60"
@@ -91,7 +93,7 @@ export const FinalCTA = () => {
               >
                 <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.div>
-              <span className="whitespace-nowrap">Start Your Data Entry Today</span>
+              <span className="whitespace-nowrap">{t("finalCta.badge")}</span>
               <div className="w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-green-400 animate-pulse"></div>
             </div>
           </motion.div>
@@ -104,10 +106,10 @@ export const FinalCTA = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <span className="block drop-shadow-lg">Ready for Clean,</span>
+            <span className="block drop-shadow-lg">{t("finalCta.headline1")}</span>
             <span className="relative inline-block mt-2 sm:mt-3">
               <span className="relative z-10 bg-gradient-to-r from-white via-emerald-50 to-white bg-clip-text text-transparent drop-shadow-2xl">
-                Accurate Data?
+                {t("finalCta.headline2")}
               </span>
               <motion.span 
                 className="absolute bottom-2 sm:bottom-3 left-0 w-full h-4 sm:h-5 bg-white/30 -z-0 rounded-full blur-sm"
@@ -127,17 +129,12 @@ export const FinalCTA = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <p className="text-xl sm:text-2xl md:text-3xl text-white/95 mb-8 leading-relaxed font-semibold drop-shadow-md">
-              Get spreadsheet‑style data delivered in 24–72 hours
+              {t("finalCta.sub")}
             </p>
             
             {/* Benefits list */}
             <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-5 mt-8">
-              {[
-                "Free sample included",
-                "Template & field mapping",
-                "99.9% accuracy QA",
-                "24–72h turnaround"
-              ].map((benefit, index) => (
+              {(t("finalCta.benefits", { returnObjects: true }) as string[]).map((benefit, index) => (
                 <motion.div
                   key={benefit}
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -168,7 +165,7 @@ export const FinalCTA = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-200/20 to-transparent -skew-x-12 transform translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-r from-green-100/0 via-green-100/10 to-green-100/0 animate-pulse" />
               <span className="relative flex items-center gap-3">
-                <span>Get Free Sample</span>
+                <span>{t("finalCta.btnSample")}</span>
                 <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 group-hover:translate-x-2 transition-transform duration-300" />
               </span>
             </Button>
@@ -182,7 +179,7 @@ export const FinalCTA = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="relative flex items-center gap-3">
                 <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 group-hover:rotate-12 transition-transform duration-300" />
-                <span>Quick WhatsApp Chat</span>
+                <span>{t("finalCta.btnWhatsapp")}</span>
               </span>
             </Button>
           </motion.div>
@@ -196,10 +193,10 @@ export const FinalCTA = () => {
             transition={{ duration: 0.7, delay: 0.35 }}
           >
             {[
-              { icon: FileText, value: "5M+", label: "Records Processed" },
-              { icon: CheckCircle2, value: "99.9%", label: "Accuracy (QA)" },
-              { icon: Clock, value: "24–72h", label: "Avg. Turnaround" },
-              { icon: Award, value: "98%", label: "On‑time Delivery" }
+              { icon: FileText, value: "5M+", label: t("finalCta.stats.records") },
+              { icon: CheckCircle2, value: "99.9%", label: t("finalCta.stats.accuracy") },
+              { icon: Clock, value: "24–72h", label: t("finalCta.stats.turnaround") },
+              { icon: Award, value: "98%", label: t("finalCta.stats.ontime") }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -230,7 +227,7 @@ export const FinalCTA = () => {
               </div>
               <div className="text-left">
                 <div className="font-bold text-white text-base">15 min</div>
-                <div className="text-sm text-white/80">Free consultation</div>
+                <div className="text-sm text-white/80">{t("finalCta.trust.consultTime")}</div>
               </div>
             </div>
             
@@ -241,7 +238,7 @@ export const FinalCTA = () => {
               </div>
               <div className="text-left">
                 <div className="font-bold text-white text-base">2 hours</div>
-                <div className="text-sm text-white/80">Avg. response time</div>
+                <div className="text-sm text-white/80">{t("finalCta.trust.responseTime")}</div>
               </div>
             </div>
             
@@ -250,8 +247,8 @@ export const FinalCTA = () => {
                 <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0" />
               </div>
               <div className="text-left">
-                <div className="font-bold text-white text-base">No commitment</div>
-                <div className="text-sm text-white/80">Zero pressure</div>
+                <div className="font-bold text-white text-base">{t("finalCta.trust.noCommit")}</div>
+                <div className="text-sm text-white/80">{t("finalCta.trust.zeroPressure")}</div>
               </div>
             </div>
           </motion.div>
@@ -265,7 +262,7 @@ export const FinalCTA = () => {
           >
             <span className="flex items-center justify-center gap-2 flex-wrap">
               <CheckCircle2 className="w-4 h-4 text-green-400" />
-              Join 500+ teams shipping clean datasets with our proven data entry workflows
+              {t("finalCta.footer")}
             </span>
           </motion.p>
         </motion.div>

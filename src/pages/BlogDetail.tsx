@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, User, ArrowLeft } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
+import { useTranslation } from "react-i18next";
 
 interface BlogPost {
   id: number;
@@ -178,8 +179,35 @@ const blogPosts: BlogPost[] = [
 const BlogDetail = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+  const { t } = useTranslation();
   
   const post = blogPosts.find(p => p.id === Number(id));
+  const override = t(`blogLong.${id}.content`, { defaultValue: "" }) as string;
+  // Build TOC and inject ids into headings
+  const buildToc = (html: string) => {
+    const toc: { level: number; text: string; id: string }[] = [];
+    const slugify = (s: string) =>
+      s
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, "")
+        .trim()
+        .replace(/\s+/g, "-")
+        .slice(0, 80);
+    let processed = html.replace(/<h2>(.*?)<\/h2>/gim, (_m, text) => {
+      const id = slugify(text);
+      toc.push({ level: 2, text, id });
+      return `<h2 id="${id}" class="scroll-mt-28">${text}</h2>`;
+    });
+    processed = processed.replace(/<h3>(.*?)<\/h3>/gim, (_m, text) => {
+      const id = slugify(text);
+      toc.push({ level: 3, text, id });
+      return `<h3 id="${id}" class="scroll-mt-28">${text}</h3>`;
+    });
+    return { html: processed, toc };
+  };
+  const rawHtml = (override || (post?.content ?? "")) as string;
+  const { html: contentHtml, toc } = buildToc(rawHtml);
+  const extras = (t(`blogExtras.${id}`, { returnObjects: true, defaultValue: null }) as null | { takeaways?: string[]; conclusion?: string });
 
   if (!post) {
     return (
@@ -208,19 +236,6 @@ const BlogDetail = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Back button */}
-          <motion.button
-            onClick={() => navigate('/')}
-            className="mt-11 mb-6 sm:mb-8 inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-card/50 backdrop-blur-sm border-2 border-border/50 hover:border-gold/50 rounded-lg sm:rounded-xl text-foreground hover:text-gold transition-all duration-300 font-semibold group shadow-md hover:shadow-lg hover:shadow-gold/10 text-sm sm:text-base"
-            whileHover={{ x: -4, scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-1 transition-transform" />
-            <span>Back to Home</span>
-          </motion.button>
 
           <article className="max-w-4xl mx-auto">
             {/* Hero Image */}
@@ -252,38 +267,82 @@ const BlogDetail = () => {
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 text-foreground leading-tight">
                 {post.title}
               </h1>
-
-              <div className="flex flex-wrap items-center gap-3 sm:gap-4 lg:gap-6 text-xs sm:text-sm md:text-base text-muted-foreground pb-6 sm:pb-8 border-b border-border">
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gold/10 flex items-center justify-center">
-                    <User className="w-3 h-3 sm:w-4 sm:h-4 text-gold" />
+              <div className="p-4 sm:p-5 rounded-xl border border-border/60 bg-card/50 backdrop-blur-sm flex flex-wrap items-center gap-4 text-xs sm:text-sm md:text-base text-muted-foreground">
+                <div className="flex items-center gap-2 min-w-[160px]">
+                  <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center">
+                    <User className="w-4 h-4 text-gold" />
                   </div>
-                  <span className="font-medium">{post.author}</span>
+                  <div className="leading-tight">
+                    <div className="text-foreground font-semibold">{post.author}</div>
+                    <div className="text-xs sm:text-sm">{post.category}</div>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gold/10 flex items-center justify-center">
-                    <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-gold" />
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center">
+                    <Calendar className="w-4 h-4 text-gold" />
                   </div>
                   <span>{post.date}</span>
                 </div>
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gold/10 flex items-center justify-center">
-                    <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-gold" />
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center">
+                    <Clock className="w-4 h-4 text-gold" />
                   </div>
                   <span>{post.readTime}</span>
                 </div>
               </div>
             </motion.div>
 
+            {/* TOC */}
+            {toc.length > 0 && (
+              <div className="mb-6 sm:mb-8 p-4 sm:p-5 bg-card border border-border rounded-lg">
+                <div className="text-sm font-bold mb-2 text-green-700 dark:text-green-300">{t('blogDetail.toc')}</div>
+                <ul className="space-y-1 text-sm text-muted-foreground">
+                  {toc.map((h) => (
+                    <li key={h.id} className={h.level === 3 ? 'ml-4' : ''}>
+                      <a href={`#${h.id}`} className="hover:text-foreground hover:underline">
+                        {h.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             {/* Content */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="prose prose-sm sm:prose-base lg:prose-lg prose-headings:text-foreground prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-8 prose-h3:text-xl sm:prose-h3:text-2xl prose-h3:font-bold prose-h3:mb-3 prose-h3:mt-6 prose-p:text-muted-foreground prose-p:leading-relaxed prose-strong:text-foreground prose-ul:text-muted-foreground prose-li:text-muted-foreground prose-li:my-1 max-w-none mb-10 sm:mb-12"
+              className="prose prose-base sm:prose-lg lg:prose-xl prose-headings:text-green-800 dark:prose-headings:text-green-300 prose-h2:text-3xl sm:prose-h2:text-4xl prose-h2:font-extrabold prose-h2:mb-6 prose-h2:mt-12 prose-h3:text-2xl sm:prose-h3:text-3xl prose-h3:font-bold prose-h3:mb-5 prose-h3:mt-8 prose-p:text-muted-foreground prose-p:leading-relaxed prose-strong:text-foreground prose-ul:list-disc prose-ol:list-decimal prose-ul:pl-6 prose-ol:pl-6 marker:text-green-600 dark:marker:text-green-300 prose-li:text-muted-foreground prose-li:my-1 max-w-none mb-12 sm:mb-16"
             >
-              <div dangerouslySetInnerHTML={{ __html: post.content }} />
+              <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
             </motion.div>
+
+            {/* Key Takeaways */}
+            {extras?.takeaways && extras.takeaways.length > 0 && (
+              <div className="mt-8 sm:mt-10 p-5 sm:p-6 rounded-xl border-2 border-green-300/50 bg-green-50/60 dark:bg-green-900/20">
+                <div className="text-green-800 dark:text-green-300 font-extrabold text-lg sm:text-xl mb-3">
+                  {t('blogDetail.takeaways')}
+                </div>
+                <ul className="list-disc pl-5 marker:text-green-600 dark:marker:text-green-300 text-muted-foreground">
+                  {extras.takeaways.map((item, idx) => (
+                    <li key={idx} className="mb-1">{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Conclusion */}
+            {extras?.conclusion && (
+              <div className="mt-10 sm:mt-12">
+                <h3 className="text-2xl sm:text-3xl font-bold text-green-800 dark:text-green-300 mb-3">
+                  {t('blogDetail.conclusion')}
+                </h3>
+                <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+                  {extras.conclusion}
+                </p>
+              </div>
+            )}
 
             {/* CTA at bottom */}
             <motion.div
@@ -297,14 +356,14 @@ const BlogDetail = () => {
               
               <div className="relative z-10">
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-foreground">
-                  Ready to Transform Your Business?
+                  {t('blogDetail.ctaTitle')}
                 </h3>
                 <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-5 sm:mb-6 max-w-2xl mx-auto leading-relaxed">
-                  Book a free consultation and discover how virtual assistants can help you scale.
+                  {t('blogDetail.ctaSubtitle')}
                 </p>
                 <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gold text-foreground font-semibold text-sm sm:text-base rounded-lg sm:rounded-xl hover:bg-gold/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
-                  <span className="hidden sm:inline">Book Free Consultation →</span>
-                  <span className="sm:hidden">Get Started →</span>
+                  <span className="hidden sm:inline">{t('blogDetail.ctaButton')} →</span>
+                  <span className="sm:hidden">{t('caseStudies.ctaButtonShort')} →</span>
                 </button>
               </div>
             </motion.div>
@@ -316,7 +375,7 @@ const BlogDetail = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-12 sm:mt-16 pt-10 sm:pt-12 border-t border-border"
             >
-              <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-foreground">More Articles</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-foreground">{t('blogDetail.moreArticles')}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 {blogPosts.filter(p => p.id !== post.id).slice(0, 2).map((relatedPost) => (
                   <motion.div

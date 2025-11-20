@@ -3,10 +3,12 @@ import { ArrowLeft, CheckCircle2, TrendingUp, Quote } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { caseStudies } from "@/components/CaseStudies";
+import { useTranslation } from "react-i18next";
 
 const CaseStudyDetail = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+  const { t } = useTranslation();
   
   const caseStudy = caseStudies.find(cs => cs.id === Number(id));
 
@@ -26,6 +28,11 @@ const CaseStudyDetail = () => {
     );
   }
 
+  // Localized fields with fallback (now that caseStudy is guaranteed)
+  const localizedTitle = (t(`caseStudies.items.${caseStudy.id}.title`) as string) || caseStudy.title;
+  const localizedChallenge = (t(`caseStudies.items.${caseStudy.id}.challenge`) as string) || caseStudy.challenge;
+  const localizedSolution = (t(`caseStudies.items.${caseStudy.id}.solution`) as string) || caseStudy.solution;
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -35,10 +42,10 @@ const CaseStudyDetail = () => {
           {/* Back button */}
           <button
             onClick={() => navigate('/')}
-            className="mb-6 flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors font-medium group"
+            className="mb-6 flex items-center gap-2 bg-gold/10 text-gold hover:bg-gold/20 transition-colors font-medium group px-3 py-2 rounded-md"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Home
+            {t('caseStudyDetail.back')}
           </button>
 
           <div className="max-w-6xl mx-auto">
@@ -50,7 +57,7 @@ const CaseStudyDetail = () => {
               </span>
               
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-foreground leading-tight">
-                {caseStudy.title}
+                {localizedTitle}
               </h1>
 
               <div className="flex items-center gap-3 text-base text-muted-foreground mb-6">
@@ -71,16 +78,16 @@ const CaseStudyDetail = () => {
               {/* Key Stats */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
                 <div className="bg-gold/5 border border-gold/20 rounded-lg p-5 text-center">
-                  <div className="text-3xl font-bold text-gold mb-1">{caseStudy.stats.costSaved}</div>
-                  <div className="text-xs text-muted-foreground">Annual Savings</div>
+                  <div className="text-3xl font-bold text-gold mb-1">{caseStudy.stats.mainResult}</div>
+                  <div className="text-xs text-muted-foreground">{t('caseStudies.labels.result')}</div>
                 </div>
                 <div className="bg-gold/5 border border-gold/20 rounded-lg p-5 text-center">
-                  <div className="text-3xl font-bold text-gold mb-1">{caseStudy.stats.vaCount}</div>
-                  <div className="text-xs text-muted-foreground">Team Size</div>
+                  <div className="text-3xl font-bold text-gold mb-1">{caseStudy.stats.seoFocus}</div>
+                  <div className="text-xs text-muted-foreground">{t('caseStudies.labels.focus')}</div>
                 </div>
                 <div className="bg-gold/5 border border-gold/20 rounded-lg p-5 text-center">
                   <div className="text-3xl font-bold text-gold mb-1">{caseStudy.stats.timeframe}</div>
-                  <div className="text-xs text-muted-foreground">Implementation</div>
+                  <div className="text-xs text-muted-foreground">{t('caseStudies.labels.timeframe')}</div>
                 </div>
               </div>
             </div>
@@ -88,11 +95,11 @@ const CaseStudyDetail = () => {
             {/* Challenge Section */}
             <div className="mb-10">
               <h2 className="text-xl sm:text-2xl font-bold mb-3 text-foreground">
-                The Challenge
+                {t('caseStudyDetail.challenge')}
               </h2>
               <div className="bg-card border border-border rounded-lg p-5 sm:p-6">
                 <p className="text-base text-muted-foreground leading-relaxed">
-                  {caseStudy.challenge}
+                  {localizedChallenge}
                 </p>
               </div>
             </div>
@@ -100,11 +107,11 @@ const CaseStudyDetail = () => {
             {/* Solution Section */}
             <div className="mb-10">
               <h2 className="text-xl sm:text-2xl font-bold mb-3 text-foreground">
-                The Solution
+                {t('caseStudyDetail.solution')}
               </h2>
               <div className="bg-card border border-border rounded-lg p-5 sm:p-6">
                 <p className="text-base text-muted-foreground leading-relaxed">
-                  {caseStudy.solution}
+                  {localizedSolution}
                 </p>
               </div>
             </div>
@@ -112,7 +119,7 @@ const CaseStudyDetail = () => {
             {/* Results Section */}
             <div className="mb-10">
               <h2 className="text-xl sm:text-2xl font-bold mb-4 text-foreground">
-                The Results
+                {t('caseStudyDetail.results')}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {caseStudy.results.map((result, index) => (
@@ -156,18 +163,18 @@ const CaseStudyDetail = () => {
               <div className="relative z-10">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/20 border border-gold/40 rounded-full mb-4">
                   <CheckCircle2 className="w-4 h-4 text-gold" />
-                  <span className="text-xs font-bold text-gold">Success Awaits</span>
+                  <span className="text-xs font-bold text-gold">{t('caseStudyDetail.ctaBadge')}</span>
                 </div>
                 
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                  Ready to Achieve{" "}
+                  {t('caseStudyDetail.ctaTitle')}{" "}
                   <span className="bg-gradient-to-r from-gold via-yellow-500 to-gold bg-clip-text text-transparent">
-                    Similar Results?
+                    {t('caseStudyDetail.ctaTitleHighlight')}
                   </span>
                 </h3>
                 
                 <p className="text-base sm:text-lg text-muted-foreground mb-6 max-w-2xl leading-relaxed">
-                  Book a <span className="text-gold font-semibold">free 15-minute consultation</span> and discover how we can help you reduce costs and scale your operations.
+                  {t('caseStudyDetail.ctaSubtitle')}
                 </p>
                 
                 <div className="flex flex-col sm:flex-row items-start gap-3">
@@ -175,30 +182,30 @@ const CaseStudyDetail = () => {
                     onClick={() => navigate('/book-meeting')}
                     className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-gold to-yellow-600 hover:from-yellow-600 hover:to-gold text-black font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center justify-center gap-2"
                   >
-                    <span>Book Free Consultation</span>
+                    <span>{t('caseStudyDetail.ctaBook')}</span>
                     <ArrowLeft className="w-4 h-4 rotate-180" />
                   </button>
                   
                   <button
                     onClick={() => navigate('/')}
-                    className="w-full sm:w-auto px-8 py-4 bg-card border-2 border-gold/30 hover:border-gold/50 text-foreground font-semibold rounded-xl transition-all duration-300 hover:bg-gold/5"
+                    className="w-full sm:w-auto px-8 py-4 bg-gold/10 text-gold border-2 border-gold/30 hover:bg-gold/20 font-semibold rounded-xl transition-all duration-300"
                   >
-                    View All Case Studies
+                    {t('caseStudyDetail.ctaViewAll')}
                   </button>
                 </div>
                 
                 <div className="mt-6 flex flex-wrap items-center gap-4 sm:gap-6 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-gold" />
-                    <span>No Commitment</span>
+                    <span>{t('caseStudyDetail.perks.noCommit')}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-gold" />
-                    <span>15 Minutes</span>
+                    <span>{t('caseStudyDetail.perks.minutes')}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-gold" />
-                    <span>100% Free</span>
+                    <span>{t('caseStudyDetail.perks.free')}</span>
                   </div>
                 </div>
               </div>
@@ -206,7 +213,7 @@ const CaseStudyDetail = () => {
 
             {/* Related Case Studies */}
             <div className="mt-12 pt-10 border-t border-border">
-              <h3 className="text-xl sm:text-2xl font-bold mb-6 text-foreground">More Success Stories</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 text-foreground">{t('caseStudyDetail.more')}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {caseStudies.filter(cs => cs.id !== caseStudy.id).slice(0, 2).map((relatedStudy) => (
                   <div
@@ -224,7 +231,7 @@ const CaseStudyDetail = () => {
                       <h4 className="text-base font-bold mt-2 mb-1 text-foreground group-hover:text-gold transition-colors line-clamp-2">
                         {relatedStudy.company}
                       </h4>
-                      <p className="text-sm text-muted-foreground line-clamp-2">{relatedStudy.challenge}</p>
+                      <p className="text-sm text-muted-foreground line-clamp-2">{(t(`caseStudies.items.${relatedStudy.id}.challenge`) as string) || relatedStudy.challenge}</p>
                       <div className="mt-2 text-sm text-gold font-semibold flex items-center gap-1">
                         View Case Study
                         <ArrowLeft className="w-4 h-4 rotate-180" />

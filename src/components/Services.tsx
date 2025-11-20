@@ -1,49 +1,16 @@
 import { Search, FileText, Settings, BarChart3, Target, Link, TrendingUp } from "lucide-react";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
-const services = [
-  {
-    icon: FileText,
-    title: "Form & Document Processing",
-    description: "Accurate entry from PDFs, scans, and forms (OCR-assisted) with double-check QA for zero missing fields",
-    benefit: "99.9% accuracy"
-  },
-  {
-    icon: Settings,
-    title: "Data Cleaning & Normalization",
-    description: "De-duplication, formatting, standardization, and validation rules to keep your datasets consistent",
-    benefit: "Clean, reliable data"
-  },
-  {
-    icon: BarChart3,
-    title: "Catalog & Listing Management",
-    description: "Product attributes, SKUs, images, pricing, and bulk updates for eCommerce, marketplaces, and CMS",
-    benefit: "Faster updates"
-  },
-  {
-    icon: Search,
-    title: "Web Research & Data Collection",
-    description: "Verified lead lists and datasets compiled from trusted sources, enriched with the fields you need",
-    benefit: "Quality leads/data"
-  },
-  {
-    icon: Link,
-    title: "CRM/Sheet Migration",
-    description: "Import/export, schema mapping, and safe migration between spreadsheets, CRMs, and databases",
-    benefit: "Seamless migration"
-  },
-  {
-    icon: Target,
-    title: "QA & Ongoing Maintenance",
-    description: "Routine audits, spot checks, and SLAs to keep records accurate as your data changes over time",
-    benefit: "Zero drift"
-  }
-];
+const iconMap = [FileText, Settings, BarChart3, Search, Link, Target];
 
 export const Services = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const { t, i18n } = useTranslation();
+  const isDe = i18n.language && i18n.language.startsWith("de");
+  const services = (t("services.items", { returnObjects: true }) as Array<{ title: string; description: string; benefit: string }>);
 
   return (
     <motion.section 
@@ -71,13 +38,13 @@ export const Services = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white text-xs sm:text-sm md:text-base font-semibold rounded-full mb-3 sm:mb-4">
-            Our Data Entry Services
+            {t("services.badge")}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-5 px-2 text-green-800 dark:text-foreground">
-            How We <span className="text-green-600 dark:text-gold">Power</span> Your Data Ops
+            {t("services.heading")} <span className="text-green-600 dark:text-gold">{t("services.highlight")}</span> {t("services.headingTail")}
           </h2>
           <p className="text-base sm:text-lg md:text-lg lg:text-xl text-muted-foreground max-w-3xl leading-relaxed px-2">
-            End‑to‑end data entry operations—intake, cleaning, validation, and delivery—so your team can focus on growth, not spreadsheets.
+            {t("services.description")}
           </p>
         </motion.div>
 
@@ -116,16 +83,22 @@ export const Services = () => {
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <service.icon className="w-7 h-7 sm:w-8 sm:h-8 md:w-7 md:h-7 lg:w-8 lg:h-8" />
+                  {(() => { const Icon = iconMap[index]; return <Icon className="w-7 h-7 sm:w-8 sm:h-8 md:w-7 md:h-7 lg:w-8 lg:h-8" />; })()}
                 </motion.div>
                 <div className="flex-1 w-full">
-                  <h3 className="text-xl sm:text-2xl md:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 md:mb-3 text-green-800 dark:text-white transition-colors duration-300">
+                  <h3 className={`text-xl sm:text-2xl md:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 md:mb-3 text-green-800 dark:text-white transition-colors duration-300 hyphens-auto break-words ${
+                    isDe ? "sm:text-xl md:text-lg lg:text-xl" : ""
+                  }`}>
                     {service.title}
                   </h3>
-                  <p className="text-sm sm:text-base md:text-sm lg:text-base text-green-700 dark:text-green-100 mb-3 sm:mb-4 md:mb-4 leading-relaxed">
+                  <p className={`text-sm sm:text-base md:text-sm lg:text-base text-green-700 dark:text-green-100 mb-3 sm:mb-4 md:mb-4 leading-relaxed hyphens-auto break-words ${
+                    isDe ? "sm:text-sm md:text-xs lg:text-sm" : ""
+                  }`}>
                     {service.description}
                   </p>
-                  <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 md:px-3.5 md:py-1.5 lg:px-4 lg:py-2 bg-green-100 dark:bg-green-800/50 border border-green-300 dark:border-green-700 rounded-full text-green-700 dark:text-green-200 text-xs sm:text-sm md:text-xs lg:text-sm font-semibold group-hover:bg-green-600 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-gray-900 group-hover:border-green-600 dark:group-hover:border-white transition-all duration-500">
+                  <div className={`inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 md:px-3.5 md:py-1.5 lg:px-4 lg:py-2 bg-green-100 dark:bg-green-800/50 border border-green-300 dark:border-green-700 rounded-full text-green-700 dark:text-green-200 text-xs sm:text-sm md:text-xs lg:text-sm font-semibold group-hover:bg-green-600 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-gray-900 group-hover:border-green-600 dark:group-hover:border-white transition-all duration-500 ${
+                    isDe ? "text-[10px] sm:text-xs md:text-[10px] lg:text-xs" : ""
+                  }`}>
                     <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4 mr-1.5 sm:mr-2 md:mr-1.5 lg:mr-2" />
                     <span className="leading-none">{service.benefit}</span>
                   </div>

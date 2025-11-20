@@ -2,10 +2,13 @@ import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Calendar, Sparkles, TrendingUp, Search, BarChart3, Award } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export const Hero = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const { t, i18n } = useTranslation();
+  const isDe = i18n.language && i18n.language.startsWith("de");
   
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -64,16 +67,20 @@ export const Hero = () => {
                 }}
                 className="text-white"
               >
-                Trusted by 500+ Businesses Worldwide
+                {t("hero.badge")}
               </motion.span>
             </motion.div>
             
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-5 md:mb-6 leading-[1.15] sm:leading-[1.12] md:leading-[1.1] text-green-800 dark:text-foreground">
-              Fast, Accurate <span className="bg-gradient-to-r from-green-600 to-green-800 dark:from-[hsl(var(--gold))] dark:to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">Data Entry Services</span>
+            <h1
+              className={`text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-5 md:mb-6 leading-[1.15] sm:leading-[1.12] md:leading-[1.1] text-green-800 dark:text-foreground tracking-tight hyphens-auto break-words ${
+                isDe ? "xs:text-4xl sm:text-[40px] md:text-[52px] lg:text-[58px]" : ""
+              }`}
+            >
+              {t("hero.title1")} <span className="bg-gradient-to-r from-green-600 to-green-800 dark:from-[hsl(var(--gold))] dark:to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">{t("hero.titleHighlight")}</span>
             </h1>
             
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-3 sm:mb-4 md:mb-5 leading-relaxed max-w-xl">
-              Spreadsheet-style data entry with validation, clean-up, and QA. We handle forms, lists, catalogs, surveys, OCR docs, and bulk updates—accurately and on time.
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-3 sm:mb-4 md:mb-5 leading-relaxed max-w-xl hyphens-auto break-words">
+              {t("hero.subtitle")}
             </p>
             
             <motion.div
@@ -85,8 +92,10 @@ export const Hero = () => {
               <Button 
                 size="lg"
                 onClick={() => window.location.href = '/book-meeting'}
-                className="group relative w-full sm:w-auto text-sm sm:text-base md:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 md:py-7 h-auto font-bold bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white hover:from-green-500 hover:via-green-600 hover:to-green-700 transform hover:scale-[1.06] hover:-translate-y-2 transition-all duration-400 cursor-pointer overflow-hidden rounded-xl border-2 border-transparent hover:border-green-400/30 shadow-[0_20px_60px_-15px_rgba(34,197,94,0.6)]"
-                aria-label="Book a free 15-minute data entry consultation"
+                className={`group relative w-full sm:w-auto text-sm sm:text-base md:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 md:py-7 h-auto font-bold bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white hover:from-green-500 hover:via-green-600 hover:to-green-700 transform hover:scale-[1.06] hover:-translate-y-2 transition-all duration-400 cursor-pointer overflow-hidden rounded-xl border-2 border-transparent hover:border-green-400/30 shadow-[0_20px_60px_-15px_rgba(34,197,94,0.6)] ${
+                  isDe ? "text-xs sm:text-sm md:text-base" : ""
+                }`}
+                aria-label={t("hero.ctaFull") as string}
               >
                 {/* Subtle shimmer effect */}
                 <motion.div
@@ -109,8 +118,8 @@ export const Hero = () => {
                 
                 <span className="relative z-10 flex items-center justify-center gap-2.5">
                   <Calendar className="w-5 h-5 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" aria-hidden="true" />
-                  <span className="hidden sm:inline font-semibold group-hover:tracking-wide transition-all duration-300">Book Data Entry Consult (15 min)</span>
-                  <span className="sm:hidden font-semibold group-hover:tracking-wide transition-all duration-300">Book Consult</span>
+                  <span className="hidden sm:inline font-semibold group-hover:tracking-wide transition-all duration-300">{t("hero.ctaFull")}</span>
+                  <span className="sm:hidden font-semibold group-hover:tracking-wide transition-all duration-300">{t("hero.ctaShort")}</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-2 group-hover:scale-110 transition-all duration-300" aria-hidden="true" />
                 </span>
               </Button>
@@ -135,7 +144,7 @@ export const Hero = () => {
                 >
                   <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-gold" aria-hidden="true" />
                 </motion.div>
-                <span className="font-medium">Free sample + workflow plan included</span>
+                <span className="font-medium">{t("finalCta.btnSample")}</span>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -167,7 +176,7 @@ export const Hero = () => {
                 className="bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white px-3 py-2 sm:px-4 sm:py-2.5 rounded-full shadow-lg border-2 border-background flex items-center gap-1.5 sm:gap-2"
               >
                 <Award className="w-3 h-3 sm:w-4 sm:h-4" aria-hidden="true" />
-                <span className="text-[10px] sm:text-xs font-bold whitespace-nowrap">Top Rated</span>
+                <span className="text-[10px] sm:text-xs font-bold whitespace-nowrap">{isDe ? "Top-bewertet" : "Top Rated"}</span>
               </motion.div>
             </motion.div>
             
@@ -229,7 +238,7 @@ export const Hero = () => {
                     >
                       <Search className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-green-400 transition-colors" aria-hidden="true" />
                       <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">5M+</div>
-                      <div className="text-[9px] sm:text-[10px] md:text-xs text-green-200 font-medium">Records Processed</div>
+                      <div className="text-[9px] sm:text-[10px] md:text-xs text-green-200 font-medium">{t("hero.stats.records")}</div>
                     </motion.div>
                   </motion.div>
                   
@@ -246,7 +255,7 @@ export const Hero = () => {
                     >
                       <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-green-400 transition-colors" aria-hidden="true" />
                       <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">24–48h</div>
-                      <div className="text-[9px] sm:text-[10px] md:text-xs text-green-200 font-medium">Avg Turnaround</div>
+                      <div className="text-[9px] sm:text-[10px] md:text-xs text-green-200 font-medium">{t("hero.stats.turnaround")}</div>
                     </motion.div>
                   </motion.div>
                   
@@ -263,7 +272,7 @@ export const Hero = () => {
                     >
                       <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-green-400 transition-colors" aria-hidden="true" />
                       <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">99.9%</div>
-                      <div className="text-[9px] sm:text-[10px] md:text-xs text-green-200 font-medium">Accuracy (QA)</div>
+                      <div className="text-[9px] sm:text-[10px] md:text-xs text-green-200 font-medium">{t("hero.stats.accuracy")}</div>
                     </motion.div>
                   </motion.div>
                 </div>
