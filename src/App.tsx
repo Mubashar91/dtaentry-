@@ -10,7 +10,7 @@ import BlogDetail from "./pages/BlogDetail";
 import CaseStudyDetail from "./pages/CaseStudyDetail";
 import { BookMeeting } from "./pages/BookMeeting";
 import NotFound from "./pages/NotFound";
-
+            
 const queryClient = new QueryClient();
 
 const App = () => (
