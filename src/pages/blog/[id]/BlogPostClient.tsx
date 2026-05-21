@@ -176,7 +176,7 @@ const blogPosts: BlogPost[] = [
   }
 ];
 
-const BlogDetail = () => {
+const BlogPostClient = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { t } = useTranslation();
@@ -411,4 +411,4 @@ const BlogDetail = () => {
   );
 };
 
-export default BlogDetail;
+export default BlogPostClient;

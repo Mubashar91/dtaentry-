@@ -3,14 +3,46 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, Clock, Video, CheckCircle2, ArrowLeft, Menu, X, Phone, Mail, Star, Shield, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { applySEO, injectStructuredData } from "@/lib/seo";
 
-export const BookMeeting = () => {
+export default function BookMeetingClient() {
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    applySEO({
+      title: "Book a Free Data Entry Consultation",
+      description: "Schedule a free 15-minute consultation to discuss your data entry needs. No commitment. Get a free sample and custom quote.",
+      canonical: `${window.location.origin}/book-meeting`,
+      noindex: false,
+    });
+    injectStructuredData({
+      "@context": "https://schema.org",
+      "@type": "Event",
+      name: "Free Data Entry Consultation",
+      description: "15-minute free consultation to discuss your data entry project needs.",
+      eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
+      organizer: { "@type": "Organization", name: "DataEntry Pro" },
+    });
+
     // Load Calendly widget script
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Handle scroll for navbar
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.body.removeChild(script);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
     const script = document.createElement("script");
     script.src = "https://assets.calendly.com/assets/external/widget.js";
     script.async = true;
@@ -459,4 +491,4 @@ export const BookMeeting = () => {
       </footer>
     </div>
   );
-};
+}

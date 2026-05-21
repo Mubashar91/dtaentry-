@@ -65,6 +65,10 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
     return null;
   }
 
+  // Sanitize: only allow valid CSS color strings (hex, rgb, hsl, named, var(--...))
+  const sanitizeColor = (color: string) =>
+    /^(#[0-9a-fA-F]{3,8}|rgb\(|rgba\(|hsl\(|hsla\(|var\(--|[a-zA-Z]+)/.test(color.trim()) ? color : "";
+
   return (
     <style
       dangerouslySetInnerHTML={{
@@ -74,7 +78,8 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
 ${prefix} [data-chart=${id}] {
 ${colorConfig
   .map(([key, itemConfig]) => {
-    const color = itemConfig.theme?.[theme as keyof typeof itemConfig.theme] || itemConfig.color;
+    const raw = itemConfig.theme?.[theme as keyof typeof itemConfig.theme] || itemConfig.color;
+    const color = raw ? sanitizeColor(raw) : null;
     return color ? `  --color-${key}: ${color};` : null;
   })
   .join("\n")}

@@ -3,6 +3,7 @@ import { Search, FileText, Settings, TrendingUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const iconMap = [Search, FileText, Settings, TrendingUp];
+const getStepIcon = (index: number) => iconMap[index % iconMap.length];
 
 export const HowItWorks = () => {
   const prefersReducedMotion = useReducedMotion();
@@ -53,7 +54,7 @@ export const HowItWorks = () => {
                   transition={{ duration: 0.45, ease: "easeInOut" }}
                 >
                   <div className="absolute inset-0 rounded-full bg-green-500/20 blur-md group-hover:blur-lg transition-all duration-500" />
-                  {(() => { const Icon = iconMap[index]; return <Icon className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 text-white relative z-10" />; })()}
+                  {(() => { const Icon = getStepIcon(index); return <Icon className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 text-white relative z-10" />; })()}
                   <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-7 h-7 sm:w-8 sm:h-8 bg-green-100 dark:bg-green-800 text-green-800 dark:text-white rounded-full flex items-center justify-center text-xs sm:text-sm font-bold border-2 border-green-600 dark:border-green-600">
                     {index + 1}
                   </div>

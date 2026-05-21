@@ -1,23 +1,47 @@
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 import { ArrowRight, Calendar, Sparkles, TrendingUp, Search, BarChart3, Award } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { fetchHero, type HeroData } from "@/lib/api";
 
 export const Hero = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
   const { t, i18n } = useTranslation();
-  const isDe = i18n.language && i18n.language.startsWith("de");
+  const isDe = i18n.language?.startsWith("de");
+  const lang = isDe ? "de" : "en";
+
+  const fallback: HeroData = useMemo(() => ({
+    title: isDe ? "Schnelle, präzise" : "Fast, Accurate",
+    subtitle: isDe
+      ? "Tabellenähnliche Dateneingabe mit Validierung, Bereinigung und QS."
+      : "Spreadsheet-style data entry with validation, clean-up, and QA.",
+    tagline: isDe ? "Von über 500 Unternehmen weltweit vertraut" : "Trusted by 500+ Businesses Worldwide",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    ctaPrimary: isDe ? "Datenerfassungs-Beratung buchen (15 Min)" : "Book Data Entry Consult (15 min)",
+    urgency: isDe ? "Kostenlose Probe erhalten" : "Get Free Sample",
+    stats: { clients: "5M+", costSaved: "24–48h", rating: "99.9%" },
+  }), [isDe]);
+
+  const [heroData, setHeroData] = useState<HeroData>(fallback);
+
+  useEffect(() => {
+    fetchHero(lang)
+      .then((data) => { if (data) setHeroData(data); })
+      .catch(() => {});
+  }, [lang, fallback]);
   
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"]
   });
-  
+
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0]);
   const springY = useSpring(y, { stiffness: 100, damping: 30 });
+
+  const stats = heroData.stats;
 
   return (
     <motion.section 
@@ -67,7 +91,7 @@ export const Hero = () => {
                 }}
                 className="text-white"
               >
-                {t("hero.badge")}
+                {heroData.tagline || t("hero.badge")}
               </motion.span>
             </motion.div>
             
@@ -76,11 +100,11 @@ export const Hero = () => {
                 isDe ? "xs:text-4xl sm:text-[40px] md:text-[52px] lg:text-[58px]" : ""
               }`}
             >
-              {t("hero.title1")} <span className="bg-gradient-to-r from-green-600 to-green-800 dark:from-[hsl(var(--gold))] dark:to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">{t("hero.titleHighlight")}</span>
+              {heroData.title || t("hero.title1")} <span className="bg-gradient-to-r from-green-600 to-green-800 dark:from-[hsl(var(--gold))] dark:to-[hsl(var(--brand-blue))] bg-clip-text text-transparent">{t("hero.titleHighlight")}</span>
             </h1>
-            
+
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-3 sm:mb-4 md:mb-5 leading-relaxed max-w-xl hyphens-auto break-words">
-              {t("hero.subtitle")}
+              {heroData.subtitle || t("hero.subtitle")}
             </p>
             
             <motion.div
@@ -95,7 +119,7 @@ export const Hero = () => {
                 className={`group relative w-full sm:w-auto text-sm sm:text-base md:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 md:py-7 h-auto font-bold bg-gradient-to-br from-green-600 via-green-700 to-green-800 text-white hover:from-green-500 hover:via-green-600 hover:to-green-700 transform hover:scale-[1.06] hover:-translate-y-2 transition-all duration-400 cursor-pointer overflow-hidden rounded-xl border-2 border-transparent hover:border-green-400/30 shadow-[0_20px_60px_-15px_rgba(34,197,94,0.6)] ${
                   isDe ? "text-xs sm:text-sm md:text-base" : ""
                 }`}
-                aria-label={t("hero.ctaFull") as string}
+                aria-label={(heroData.ctaPrimary || t("hero.ctaFull")) as string}
               >
                 {/* Subtle shimmer effect */}
                 <motion.div
@@ -118,8 +142,8 @@ export const Hero = () => {
                 
                 <span className="relative z-10 flex items-center justify-center gap-2.5">
                   <Calendar className="w-5 h-5 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" aria-hidden="true" />
-                  <span className="hidden sm:inline font-semibold group-hover:tracking-wide transition-all duration-300">{t("hero.ctaFull")}</span>
-                  <span className="sm:hidden font-semibold group-hover:tracking-wide transition-all duration-300">{t("hero.ctaShort")}</span>
+                  <span className="hidden sm:inline font-semibold group-hover:tracking-wide transition-all duration-300">{heroData.ctaPrimary || t("hero.ctaFull")}</span>
+                  <span className="sm:hidden font-semibold group-hover:tracking-wide transition-all duration-300">{heroData.ctaPrimary || t("hero.ctaShort")}</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-2 group-hover:scale-110 transition-all duration-300" aria-hidden="true" />
                 </span>
               </Button>
@@ -144,7 +168,7 @@ export const Hero = () => {
                 >
                   <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-gold" aria-hidden="true" />
                 </motion.div>
-                <span className="font-medium">{t("finalCta.btnSample")}</span>
+                <span className="font-medium">{heroData.urgency || t("finalCta.btnSample")}</span>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -237,7 +261,7 @@ export const Hero = () => {
                       transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                     >
                       <Search className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-green-400 transition-colors" aria-hidden="true" />
-                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">5M+</div>
+                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">{stats.clients}</div>
                       <div className="text-[9px] sm:text-[10px] md:text-xs text-green-200 font-medium">{t("hero.stats.records")}</div>
                     </motion.div>
                   </motion.div>
@@ -254,7 +278,7 @@ export const Hero = () => {
                       transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
                     >
                       <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-green-400 transition-colors" aria-hidden="true" />
-                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">24–48h</div>
+                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">{stats.costSaved}</div>
                       <div className="text-[9px] sm:text-[10px] md:text-xs text-green-200 font-medium">{t("hero.stats.turnaround")}</div>
                     </motion.div>
                   </motion.div>
@@ -271,7 +295,7 @@ export const Hero = () => {
                       transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
                     >
                       <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-green-400 transition-colors" aria-hidden="true" />
-                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">99.9%</div>
+                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">{stats.rating}</div>
                       <div className="text-[9px] sm:text-[10px] md:text-xs text-green-200 font-medium">{t("hero.stats.accuracy")}</div>
                     </motion.div>
                   </motion.div>

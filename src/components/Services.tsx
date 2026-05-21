@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 const iconMap = [FileText, Settings, BarChart3, Search, Link, Target];
+const getServiceIcon = (index: number) => iconMap[index % iconMap.length];
 
 export const Services = () => {
   const ref = useRef(null);
@@ -83,7 +84,7 @@ export const Services = () => {
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
-                  {(() => { const Icon = iconMap[index]; return <Icon className="w-7 h-7 sm:w-8 sm:h-8 md:w-7 md:h-7 lg:w-8 lg:h-8" />; })()}
+                  {(() => { const Icon = getServiceIcon(index); return <Icon className="w-7 h-7 sm:w-8 sm:h-8 md:w-7 md:h-7 lg:w-8 lg:h-8" />; })()}
                 </motion.div>
                 <div className="flex-1 w-full">
                   <h3 className={`text-xl sm:text-2xl md:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 md:mb-3 text-green-800 dark:text-white transition-colors duration-300 hyphens-auto break-words ${

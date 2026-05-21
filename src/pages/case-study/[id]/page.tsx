@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2, TrendingUp, Quote } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
-import { caseStudies } from "@/components/CaseStudies";
+import { caseStudies } from "@/data/caseStudies";
 import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
+import { applySEO, injectStructuredData, buildBreadcrumbSchema } from "@/lib/seo";
 
 const CaseStudyDetail = () => {
   const navigate = useNavigate();
@@ -32,6 +34,36 @@ const CaseStudyDetail = () => {
   const localizedTitle = (t(`caseStudies.items.${caseStudy.id}.title`) as string) || caseStudy.title;
   const localizedChallenge = (t(`caseStudies.items.${caseStudy.id}.challenge`) as string) || caseStudy.challenge;
   const localizedSolution = (t(`caseStudies.items.${caseStudy.id}.solution`) as string) || caseStudy.solution;
+
+  // Per-case-study SEO
+  useEffect(() => {
+    const url = `${window.location.origin}/case-study/${caseStudy.id}`;
+    applySEO({
+      title: localizedTitle,
+      description: localizedChallenge,
+      canonical: url,
+      image: caseStudy.image,
+      type: "article",
+    });
+    injectStructuredData({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          headline: localizedTitle,
+          description: localizedChallenge,
+          image: caseStudy.image,
+          url,
+          publisher: { "@type": "Organization", name: "DataEntry Pro" },
+        },
+        buildBreadcrumbSchema([
+          { name: "Home", url: window.location.origin },
+          { name: "Case Studies", url: `${window.location.origin}/#case-studies` },
+          { name: localizedTitle, url },
+        ]),
+      ],
+    });
+  }, [caseStudy.id]);
 
   return (
     <div className="min-h-screen bg-background">

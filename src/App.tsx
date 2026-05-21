@@ -5,11 +5,11 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { DesignTokensProvider } from "@/components/DesignTokensProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import BlogDetail from "./pages/BlogDetail";
-import CaseStudyDetail from "./pages/CaseStudyDetail";
-import { BookMeeting } from "./pages/BookMeeting";
-import NotFound from "./pages/NotFound";
+import Index from "./pages/index/page";
+import BlogDetail from "./pages/blog/[id]/page";
+import CaseStudyDetail from "./pages/case-study/[id]/page";
+import { BookMeeting } from "./pages/book-meeting/page";
+import NotFound from "./pages/not-found/page";
             
 const queryClient = new QueryClient();
 

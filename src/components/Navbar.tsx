@@ -92,7 +92,7 @@ export const Navbar = () => {
               className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-green-800 dark:text-foreground hover:text-green-600 dark:hover:text-gold transition-colors duration-300"
               whileHover={{ scale: 1.05 }}
             >
-              SEO Pro
+              DataEntry Pro
             </motion.span>
           </motion.div>
 

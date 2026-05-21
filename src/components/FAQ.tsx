@@ -9,7 +9,8 @@ import { HelpCircle, Shield, Zap } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export const FAQ = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isDe = i18n.language?.startsWith("de");
   const faqs = (t("faq.items", { returnObjects: true }) as Array<{ q: string; a: string }>);
   return (
     <motion.section 
@@ -108,10 +109,10 @@ export const FAQ = () => {
                 </div>
                 <div>
                   <h3 className="text-base sm:text-lg font-bold text-green-800 dark:text-white mb-1.5">
-                    Data Security & Confidentiality
+                    {isDe ? "Datensicherheit & Vertraulichkeit" : "Data Security & Confidentiality"}
                   </h3>
                   <p className="text-sm text-green-700 dark:text-green-100 leading-relaxed">
-                    NDA on request, least‑privilege access, encrypted transfer, and audit logs available for sensitive workflows.
+                    {isDe ? "NDA auf Wunsch, Least-Privilege-Zugriff, verschlüsselter Transfer und Audit-Logs für sensible Workflows." : "NDA on request, least‑privilege access, encrypted transfer, and audit logs available for sensitive workflows."}
                   </p>
                 </div>
               </div>
@@ -124,10 +125,10 @@ export const FAQ = () => {
                 </div>
                 <div>
                   <h3 className="text-base sm:text-lg font-bold text-green-800 dark:text-white mb-1.5">
-                    Complete Data Ops
+                    {isDe ? "Vollständige Data Ops" : "Complete Data Ops"}
                   </h3>
                   <p className="text-sm text-green-700 dark:text-green-100 leading-relaxed">
-                    Intake • Cleaning • Validation • Deduping • QA • Delivery • Maintenance
+                    {isDe ? "Intake • Bereinigung • Validierung • Deduplizierung • QS • Lieferung • Wartung" : "Intake • Cleaning • Validation • Deduping • QA • Delivery • Maintenance"}
                   </p>
                 </div>
               </div>

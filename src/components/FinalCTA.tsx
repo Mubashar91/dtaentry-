@@ -2,9 +2,25 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle, Sparkles, Clock, CheckCircle2, Award, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useState, useEffect } from "react";
+import { fetchHero, type HeroData } from "@/lib/api";
+
+const WHATSAPP_URL = import.meta.env.VITE_WHATSAPP_NUMBER
+  ? `https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER.replace(/\D/g, "")}`
+  : null;
 
 export const FinalCTA = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isDe = i18n.language?.startsWith("de");
+  const lang = isDe ? "de" : "en";
+
+  const [heroData, setHeroData] = useState<HeroData | null>(null);
+
+  useEffect(() => {
+    fetchHero(lang).then((d) => { if (d) setHeroData(d); }).catch(() => {});
+  }, [lang]);
+
+  const stats = heroData?.stats || { clients: "5M+", costSaved: "24–72h", rating: "99.9%" };
   return (
     <motion.section 
       className="relative overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 bg-gradient-to-br from-green-900 via-green-800 to-green-950 z-60"
@@ -173,7 +189,7 @@ export const FinalCTA = () => {
             <Button 
               variant="outline"
               size="lg"
-              onClick={() => window.open('https://wa.me/YOUR_WHATSAPP_NUMBER', '_blank')}
+              onClick={() => WHATSAPP_URL && window.open(WHATSAPP_URL, '_blank', 'noopener,noreferrer')}
               className="bg-white/10 border-3 border-white text-white hover:bg-background hover:text-foreground hover:scale-[1.08] active:scale-[1.02] px-6 sm:px-10 py-6 sm:py-8 text-base sm:text-lg font-bold rounded-2xl backdrop-blur-lg transition-all duration-300 group relative overflow-hidden cursor-pointer w-full sm:w-auto shadow-lg hover:shadow-2xl dark:hover:bg-primary dark:hover:text-primary-foreground"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -193,9 +209,9 @@ export const FinalCTA = () => {
             transition={{ duration: 0.7, delay: 0.35 }}
           >
             {[
-              { icon: FileText, value: "5M+", label: t("finalCta.stats.records") },
-              { icon: CheckCircle2, value: "99.9%", label: t("finalCta.stats.accuracy") },
-              { icon: Clock, value: "24–72h", label: t("finalCta.stats.turnaround") },
+              { icon: FileText, value: stats.clients, label: t("finalCta.stats.records") },
+              { icon: CheckCircle2, value: stats.rating, label: t("finalCta.stats.accuracy") },
+              { icon: Clock, value: stats.costSaved, label: t("finalCta.stats.turnaround") },
               { icon: Award, value: "98%", label: t("finalCta.stats.ontime") }
             ].map((stat, index) => (
               <motion.div
